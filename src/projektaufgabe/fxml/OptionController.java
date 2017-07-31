@@ -29,24 +29,24 @@ public class OptionController implements Initializable, PlatformOption {
     @FXML
     private StackPane pane;
     @FXML
-    private TextField port;
+    private TextField portMAXKNOTENZAHL;
     @FXML
-    private TextField host;
+    private TextField hostMIN;
     @FXML
-    private TextField db;
+    private TextField dbMAX;
     @FXML
-    private TextField username;
+    private TextField usernameSCHRITTLAENGE;
     @FXML
-    private TextField passwort;
+    private TextField passwortPOOL;
     @FXML
-    private Button settings;
+    private Button settingsUEBERNEHMEN;
 
-    public String user;
-    public String pw;
+    public String schrittlaenge;
+    public String pool;
     public String urli;
-    public String porti;
-    public String hosti;
-    public String dbi;
+    public String maxKnotenzahl;
+    public String min;
+    public String max;
     private Projektaufgabe caller;
     private PlatformActionHandler handler = PlatformActionHandler.getInstance();
 //    private final Service service = Service.getInstance();
@@ -56,10 +56,11 @@ public class OptionController implements Initializable, PlatformOption {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      host.setText("localhost dbvm09.iai.uni-bonn.de" );
-      port.setText("5432");
-      db.setText("projektaufgabe personalmittel");
-      username.setText("postgres schaefer");
+      hostMIN.setText("1" );
+      dbMAX.setText("30");
+      portMAXKNOTENZAHL.setText("15");
+      passwortPOOL.setText("5");
+      usernameSCHRITTLAENGE.setText("2");
         // TODO
     }
 
@@ -70,16 +71,17 @@ public class OptionController implements Initializable, PlatformOption {
     @FXML
     private void handleEinstellungen() {
 
-        porti = port.getText();
-        hosti = host.getText();
-        dbi = db.getText();
+        maxKnotenzahl = portMAXKNOTENZAHL.getText();
+        min = hostMIN.getText();
+        max = dbMAX.getText();
         
-        urli = "jdbc:postgresql://"+hosti+":"+porti+"/"+dbi;
+//        urli = "jdbc:postgresql://"+hosti+":"+porti+"/"+dbi;
 //        jdbc:postgresql://localhost:5432/projektaufgabe
-        user = username.getText();
-        pw = passwort.getText();
-        caller.configDone(user, pw,urli);
-        Stage stage = (Stage) settings.getScene().getWindow();
+        schrittlaenge = usernameSCHRITTLAENGE.getText();
+        pool = passwortPOOL.getText();
+        
+        caller.startInstanceFactory(schrittlaenge, pool,maxKnotenzahl,min,max);
+        Stage stage = (Stage) settingsUEBERNEHMEN.getScene().getWindow();
         stage.close();
 
     }

@@ -16,32 +16,32 @@
                     </font>
                 </Label><HBox spacing="100.0">
 <children>
-<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Host" />
-<TextField fx:id="host" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+<Label maxWidth="127.0" minWidth="70.0" prefHeight="17.0" prefWidth="127.0" text="Minimaler Knotenwert" />
+<TextField fx:id="hostMIN" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
 </children>
 </HBox><HBox spacing="100.0">
 <children>
-<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Port" />
-<TextField fx:id="port" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+<Label maxWidth="127.0" minWidth="70.0" prefHeight="17.0" prefWidth="127.0" text="Maximale Instanzgröße" />
+<TextField fx:id="portMAXKNOTENZAHL" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
 </children>
 </HBox>
             <HBox spacing="100.0">
                <children>
-                      <Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Datenbank" />
-                      <TextField fx:id="db" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                      <Label maxWidth="125.0" minWidth="70.0" prefHeight="17.0" prefWidth="125.0" text="Maximaler Knotenwert" />
+                      <TextField fx:id="dbMAX" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
                </children>
             </HBox>
 <HBox layoutX="10.0" layoutY="168.0" spacing="100.0">
 <children>
-<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Username" />
-<TextField fx:id="username" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+<Label maxWidth="185.0" minWidth="70.0" prefHeight="17.0" prefWidth="124.0" text=" Instanzgröße Schritt" />
+<TextField fx:id="usernameSCHRITTLAENGE" maxWidth="201.0" minWidth="200.0" prefHeight="25.0" prefWidth="201.0" />
 </children>
 </HBox>
 <HBox layoutX="10.0" layoutY="217.0" spacing="100.0">
 <children>
-<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Passwort" /><PasswordField fx:id="passwort" prefHeight="25.0" prefWidth="200.0" />
+<Label maxWidth="125.0" minWidth="70.0" prefHeight="17.0" prefWidth="125.0" text="Pool" /><PasswordField fx:id="passwortPOOL" prefHeight="25.0" prefWidth="200.0" />
 </children>
-</HBox><Button fx:id="settings" mnemonicParsing="false" onAction="#handleEinstellungen" text="Übernehmen" />
+</HBox><Button fx:id="settingsUEBERNEHMEN" mnemonicParsing="false" onAction="#handleEinstellungen" text="Übernehmen" />
          </children>
       </VBox>
     </children>

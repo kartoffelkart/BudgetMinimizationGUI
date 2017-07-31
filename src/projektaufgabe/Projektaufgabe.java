@@ -64,16 +64,16 @@ public class Projektaufgabe extends Application {
 //            Service.getInstance().closeSession();
 //            javafx.application.Platform.exit();
 //        });
-        app.setOnPlatformClose(new EventHandler<WindowEvent>() {
-
-            @Override
-            public void handle(WindowEvent event) {
-                System.out.println("test");
-                HibernateUtil.getInstance().close();
-            }
-        });
+//        app.setOnPlatformClose(new EventHandler<WindowEvent>() {
+//
+//            @Override
+//            public void handle(WindowEvent event) {
+//                System.out.println("test");
+//                HibernateUtil.getInstance().close();
+//            }
+//        });
         PlatformSettingsManager man = PlatformSettingsManager.getInstance();
-        if (man.getCustomElement("preLoadDone") == null) {//test
+      
 
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/projektaufgabe/fxml/Option.fxml"));
@@ -88,40 +88,33 @@ public class Projektaufgabe extends Application {
             } catch (IOException ex) {
                 Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
-           
-            try {
-                app.start(stage);
-      
-            } catch (Exception ex) {
-                Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+   
 
     }
 
-    public void configDone(String user, String pw, String urli) {
-        PlatformSettingsManager man = PlatformSettingsManager.getInstance();
-        man.storeCustomElement("hibernate.connection.url", urli);
-        man.storeCustomElement("hibernate.connection.username", user);
-        man.storeCustomElement("hibernate.connection.password", pw);
-
-        man.storeCustomElement("preLoadDone", "true");
-        System.out.println(man.getCustomElement("hibernate.connection.username"));
-        try {
-            app.start(stage);
-            app.setOnPlatformClose(e -> {
-                Service.getInstance().closeSession();
-                javafx.application.Platform.exit();
-            });
-        } catch (Exception ex) {
-            Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            man.saveDocument();
-        } catch (IOException | TransformerException ex) {
-            Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void startInstanceFactory(String schrittlaenge, String pool, String maxKnotenzahl,String min, String max ) {
+//        PlatformSettingsManager man = PlatformSettingsManager.getInstance();
+//        man.storeCustomElement("hibernate.connection.url", urli);
+//        man.storeCustomElement("hibernate.connection.username", user);
+//        man.storeCustomElement("hibernate.connection.password", pw);
+//
+//        man.storeCustomElement("preLoadDone", "true");
+//        System.out.println(man.getCustomElement("hibernate.connection.username"));
+//        try {
+//            app.start(stage);
+//            app.setOnPlatformClose(e -> {
+//                Service.getInstance().closeSession();
+//                javafx.application.Platform.exit();
+//            });
+//        } catch (Exception ex) {
+//            Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        try {
+//            man.saveDocument();
+//        } catch (IOException | TransformerException ex) {
+//            Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        //TODO: STARTEN
 
     }
 
