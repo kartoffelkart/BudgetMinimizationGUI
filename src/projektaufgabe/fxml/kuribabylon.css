@@ -1,0 +1,214 @@
+/* COLORS 
+dark orange					#ff8800
+medium orange				#ffa033
+bright orange				#ffb866
+super bright orange			#fff3e5
+fff3e6
+
+background					#c!5fffa
+
+uni							#004291		rgb 0, 66, 145
+*/
+
+/*ROOT*/
+
+.root {
+    -fx-focus-color: transparent;
+	-fx-font-family: "Verdana";
+	-fx-font-size: 12px;
+        -fx-font-color:black;
+	-fx-background-color: #c5fffa;
+    -fx-accent: #004291;
+}
+
+/*PANES*/
+
+#pane {
+	-fx-background-color: linear-gradient(to top, #ffdfb8, #ffffff);
+}
+
+/*LABEL*/
+
+.label {
+	-fx-text-fill: #000000;
+	-fx-padding: 0 0 0 0;
+	-fx-font-size: 12px;
+}
+
+.label-header {
+	-fx-font-size: 20px;
+	-fx-effect: DropShadow(gaussian, lightgray, 1, 0.1, 5, 5);
+}
+
+/*BUTTON*/
+
+.button {
+    -fx-border-color: #ffb866;
+	-fx-border-width: 1.2px;
+	-fx-border-radius: 12;
+
+	-fx-background-color: #fff3e5;
+	-fx-background-radius: 12px;
+	-fx-background-insets: 0 0 0 0 0 0 0;
+}
+
+.button:hover {
+    -fx-border-color: #ffa033;
+}
+
+.button:focused {
+	-fx-border-color: #ff8800;
+}
+
+/*TEXT FIELD*/
+
+.text-field {
+	-fx-border-color: #ffb866;
+	-fx-border-radius: 10;
+	-fx-border-width: 1.2px;
+	
+	-fx-background-color: #efefef;
+	-fx-background-radius: 10;
+	-fx-background-insets: 0 0 0 0 0 0 0;
+	
+	-fx-max-width: 250px;
+}
+
+.text-field:hover {
+	-fx-border-color: #ffa033;
+}
+
+.text-field:focused {
+	-fx-border-color: #ff8800;
+	-fx-background-color: #ffffff;
+}
+
+/*COMBO BOX*/
+.choice-box{
+    -fx-border-color: #ffb866;
+        -fx-border-width: 1.2px;
+        -fx-border-radius: 12px;
+            -fx-background-color: #efefef;
+	-fx-background-radius: 12px;
+	-fx-background-insets: 0 0 0 0 0 0 0;
+}
+.combo-box {
+	-fx-background-color: transparent;
+}
+
+.combo-box .arrow-button {
+	-fx-border-color: #ffb866;
+	-fx-border-width: 1.2px;
+	-fx-border-radius: 12px;
+	
+	-fx-background-color: #efefef;
+	-fx-background-radius: 12px;
+	-fx-background-insets: 0 0 0 0 0 0 0;
+}
+
+.combo-box .arrow-button .arrow {
+	-fx-background-color: black;
+}
+
+.combo-box:hover .arrow-button {
+	-fx-border-color: #ffa033;
+}
+
+.combo-box:focused .arrow-button {
+	-fx-border-color: #ff8800;
+}
+
+/*DATE PICKER*/
+
+.date-picker {
+	-fx-background-color: transparent;
+}
+
+.date-picker .arrow-button {
+	-fx-border-color: #ffb866;
+	-fx-border-width: 1.2px;
+	-fx-border-radius: 12px;
+	
+	-fx-background-color: #efefef;
+	-fx-background-radius: 12px;
+	-fx-background-insets: 0 0 0 0 0 0 0;
+}
+
+.date-picker:hover .arrow-button {
+	-fx-border-color: #ffa033;
+}
+
+.date-picker:focused .arrow-button {
+	-fx-border-color: #ff8800;
+}
+
+.date-picker .arrow-button .arrow {
+	-fx-background-color: black;
+}
+
+/*TABLE*/
+
+.table-view {
+	-fx-border-color: transparent;
+	-fx-border-width: 1.2px;
+	
+	-fx-background-color: transparent;
+	-fx-background-insets: 0 0 0 0 0 0 0;
+}
+
+.table-view  .column-header{
+	-fx-background-color: #004291;
+	-fx-border-color: #ffffff;
+	-fx-border-width: 1.2px;
+}
+
+.table-view .column-header .text {
+	-fx-fill: #ffffff;
+	-fx-font-size: 10px;
+}
+
+.table-view .column-header-background, .table-view .column-header-background .filler  {
+	-fx-background-color: transparent;
+}
+
+.table-view .column-header-background .show-hide-columns-button {
+	-fx-background-color: #004291;
+}
+
+.table-view  .column-header-background  .column-drag-header, .table-view .column-header-background .show-hide-columns-button .show-hide-column-image {
+    -fx-background-color: #ffffff;
+}
+
+.table-view  .column-header-background  .column-drag-header  .label {
+    -fx-fill: #000000;
+}
+
+.table-view  .column-header-background .arrow{
+    -fx-background-color: #ffffff;
+}
+
+.table-view  .column-resize-line {
+	-fx-background-color: linear-gradient(to top, transparent, #004291);
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: derive(#004291, 50%);
+}
+
+.table-row-cell:even {
+    -fx-background-color: derive(rgb(0, 66, 145, 0.3), 80%);
+}
+
+.table-row-cell:odd {
+    -fx-background-color: derive(rgb(0, 66, 145, 0.3), 50%);
+}
+
+/*SCROLL BAR*/
+
+.scroll-bar {
+	-fx-background-color: white;
+}
+
+.scroll-bar .thumb {
+	-fx-background-color: #004291;
+}

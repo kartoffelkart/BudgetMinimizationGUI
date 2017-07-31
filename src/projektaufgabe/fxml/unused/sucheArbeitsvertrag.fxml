@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<children><Label layoutX="43.0048828125" layoutY="14.0" text="Verbindlichkeitsübersicht" underline="true" /><TreeTableView layoutX="24.0" layoutY="41.0" prefHeight="200.0" prefWidth="567.0">
+  <columns><TreeTableColumn prefWidth="55.0" text="von" /><TreeTableColumn prefWidth="49.0" text="bis" /><TreeTableColumn prefWidth="38.0" text="%%" />
+    <TreeTableColumn prefWidth="70.0" text="h / Stunde" />
+    <TreeTableColumn prefWidth="59.0" text="Entgelt" /><TreeTableColumn prefWidth="81.0" text="Verhältnis" /><TreeTableColumn prefWidth="109.0" text="unbefristet" /><TreeTableColumn prefWidth="139.0" text="Kategorie" />
+  </columns>
+</TreeTableView><TextField layoutX="192.0" layoutY="10.0" prefHeight="25.0" prefWidth="397.0" /><Label layoutX="29.009765625" layoutY="261.5" text="Bemerkung" /><TextField layoutX="102.0" layoutY="266.0" prefHeight="43.0" prefWidth="489.0" /><Button layoutX="24.0" layoutY="335.0" mnemonicParsing="false" text="Höhergruppierung" /><Button layoutX="382.0" layoutY="335.0" mnemonicParsing="false" text="Kündigen" /><Button layoutX="300.0" layoutY="335.0" mnemonicParsing="false" text="Elternzeit" /><Button layoutX="154.0" layoutY="335.0" mnemonicParsing="false" text="Arbeitszeit reduzieren" />
+</children></AnchorPane>

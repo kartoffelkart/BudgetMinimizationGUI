@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password"/>
+        <property name="hibernate.connection.url"/>
+        <!--jdbc:postgresql://localhost:5432/projektaufgabe</property>-->
+        <property name="hibernate.connection.username"/>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+        <mapping class="projektaufgabe.bdo.Organisationseinheit"/>
+        <mapping class="projektaufgabe.bdo.Person"/>
+        <mapping class="projektaufgabe.bdo.Verbindlichkeit"/>
+        <mapping class="projektaufgabe.bdo.Verbuchungsstelle"/>
+        <mapping class="projektaufgabe.bdo.Finanzierung"/>
+        <mapping class="projektaufgabe.bdo.VBSFinanzierung"/>
+        <mapping class="projektaufgabe.bdo.QMFinanzierung"/>
+        <mapping class="projektaufgabe.bdo.PBMFinanzierung"/>
+        <mapping class="projektaufgabe.bdo.DMFinanzierung"/>
+        <mapping class="projektaufgabe.bdo.Stelle"/>
+        <mapping class="projektaufgabe.bdo.QMBewilligung"/>
+        <mapping class="projektaufgabe.bdo.DMBewilligung"/>
+        <mapping class="projektaufgabe.bdo.Buchung"/>
+        <mapping class="projektaufgabe.bdo.Verbindlichkeitstyp"/>
+        <mapping class="projektaufgabe.bdo.Entgeltstufe"/>
+        <mapping class="projektaufgabe.bdo.Beschaeftigungskategorie"/>
+        <mapping class="projektaufgabe.bdo.Arbeitsverhaeltnis"/>
+
+
+    </session-factory>
+</hibernate-configuration>

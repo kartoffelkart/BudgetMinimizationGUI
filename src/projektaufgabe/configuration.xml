@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<platform title="PlatformApp">
+    <ribbon height="70.0">
+        
+       
+        <item menu='Import' fxml='/projektaufgabe/fxml/menu.fxml' />
+        <item menu='Personalverwaltung' fxml='/projektaufgabe/fxml/MenuPersonalverwaltung.fxml' />
+        <!--        <item menu='Arbeitsvertrag anlegen' fxml='/projektaufgabe/fxml/menu_personalverwaltung.fxml' />-->
+    </ribbon>
+    <size>
+        <item id="Alert" width="50" height="50" single="true"/>
+        <item id="Detail" width="200" height="200" single="true"/>
+        <item id="DetailBig" width="1000" height="800" single="false"/>
+    </size>
+    <windows>
+        
+        <window fxml="fxml/WindowVerbindlichkeit.fxml" />
+        <window fxml="fxml/Verbindlichkeitanlegen.fxml" size="DetailBig" />
+        <window fxml="fxml/import.fxml.fxml" />
+
+    </windows>
+    <file>
+        <window fxml="fxml/Option.fxml" />
+    </file>
+    <options>
+        <window fxml="fxml/Option.fxml" />
+        <item id="Sub Option" >
+            <window fxml="fxml/Option.fxml" />
+            <window fxml="fxml/Option.fxml" />
+        </item>
+    </options>
+</platform>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projektaufgabe.fxml.FinanzierungMaskeController">
+<children>
+<ScrollPane prefViewportHeight="519.0" prefViewportWidth="622.0">
+<content><VBox prefHeight="355.0" prefWidth="395.0" spacing="8.0">
+<StackPane.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</StackPane.margin>
+<children><HBox maxHeight="-Infinity" prefHeight="10.0" prefWidth="200.0" spacing="20.0">
+<children><Label alignment="TOP_LEFT" text="Finanzierungsart" textFill="#2446b5">
+<font>
+<Font size="15.0" />
+</font>
+<HBox.margin>
+<Insets top="5.0" />
+</HBox.margin></Label><Label fx:id="finanzierungsart" text="Label" />
+</children>
+<VBox.margin>
+<Insets left="5.0" />
+</VBox.margin></HBox><Separator prefWidth="200.0" /><HBox prefHeight="10.0" prefWidth="200.0" spacing="20.0">
+<children><Label text="Anteil" textFill="#2446b5">
+<font>
+<Font size="13.0" />
+</font></Label><StackPane prefHeight="25.0" prefWidth="335.0">
+<children>
+<HBox prefHeight="25.0" prefWidth="236.0" spacing="10.0">
+<children><TextField fx:id="anteilVZ" prefHeight="25.0" prefWidth="26.0" />
+</children>
+</HBox>
+</children></StackPane>
+</children>
+<VBox.margin>
+<Insets left="5.0" />
+</VBox.margin></HBox>
+<Separator layoutX="10.0" layoutY="44.0" prefWidth="200.0" />
+<StackPane fx:id="paneFinanzierung">
+<children>
+<VBox>
+<children><StackPane fx:id="panevbs" prefHeight="100.0" prefWidth="200.0">
+<children>
+<VBox>
+<children>
+<Label text="Angaben zur Verbuchungsstelle :" textFill="#2446b5">
+<font>
+<Font size="13.0" />
+</font>
+</Label>
+<HBox prefHeight="175.0" prefWidth="618.0">
+<children>
+<GridPane>
+<children>
+<TextField fx:id="pn" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+<TextField fx:id="position" layoutX="113.0" layoutY="9.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+<TextField fx:id="kapitel" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+<TextField fx:id="titel" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+<TextField fx:id="ut" layoutX="435.0" layoutY="65.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+<Label text="PN" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+<Label text="Titel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+<Label text="Kapitel" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+<Label layoutX="10.0" layoutY="13.0" text="Position" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+<Label layoutX="324.0" layoutY="34.0" text="Zweck" GridPane.columnIndex="0" GridPane.rowIndex="2">
+<GridPane.margin>
+<Insets />
+</GridPane.margin>
+</Label>
+<TextField fx:id="zweck" layoutX="113.0" layoutY="9.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+<Label text="UT" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+</children>
+<columnConstraints>
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="70.0" />
+</columnConstraints>
+<rowConstraints>
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+</rowConstraints>
+</GridPane>
+</children>
+<StackPane.margin>
+<Insets left="10.0" />
+</StackPane.margin>
+</HBox>
+</children>
+</VBox>
+</children>
+</StackPane><StackPane fx:id="paneqmf" prefHeight="25.0" prefWidth="200.0" visible="false">
+<children><HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+<children><Label layoutX="10.0" layoutY="52.0" text="QM-Nr." /><TextField fx:id="qmfnr" layoutX="110.0" layoutY="48.0" prefHeight="25.0" prefWidth="63.0" />
+</children></HBox>
+</children></StackPane>
+<StackPane fx:id="panedm" layoutX="10.0" layoutY="110.0" prefHeight="25.0" prefWidth="200.0">
+<children>
+<HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+<children>
+<Label layoutX="10.0" layoutY="52.0" text="DM-Nr." />
+<TextField fx:id="dmfnr" layoutX="110.0" layoutY="48.0" prefHeight="25.0" prefWidth="63.0" />
+</children>
+</HBox>
+</children>
+</StackPane>
+</children>
+</VBox><StackPane fx:id="panepbm" layoutX="10.0" layoutY="396.0" prefHeight="125.0" prefWidth="200.0" visible="false">
+<children>
+<VBox>
+<children>
+<Label text="Angaben zur Stelle :" textFill="#2446b5">
+<font>
+<Font size="13.0" />
+</font>
+</Label>
+<HBox prefHeight="100.0" prefWidth="200.0">
+<children><GridPane>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+<children><TextField fx:id="stelle" GridPane.columnIndex="1" /><Label text="Stellen-Nr." />
+</children>
+</GridPane>
+</children>
+<StackPane.margin>
+<Insets left="10.0" />
+</StackPane.margin>
+</HBox>
+</children>
+</VBox>
+</children>
+</StackPane>
+</children>
+<VBox.margin>
+<Insets left="5.0" />
+</VBox.margin>
+</StackPane><Separator fx:id="seperator" prefWidth="200.0" />
+<HBox spacing="5.0">
+<children><Label text="Bemerkung:" textFill="#2446b5">
+<font>
+<Font size="13.0" />
+</font></Label><TextArea fx:id="bemerkung" prefHeight="68.0" prefWidth="314.0" />
+</children>
+<VBox.margin>
+<Insets left="5.0" />
+</VBox.margin>
+</HBox><HBox prefHeight="25.0" prefWidth="200.0" spacing="60.0">
+<children><Button fx:id="finanzierungUebernehmen" mnemonicParsing="false" onAction="#handleFinanzierungUebernehmen" text="Übernehmen" /><Button fx:id="abbrechen" mnemonicParsing="false" onAction="#handleAbbrechen" text="Abbrechen" />
+</children>
+<padding>
+<Insets left="50.0" />
+</padding>
+<VBox.margin>
+<Insets left="5.0" />
+</VBox.margin></HBox>
+</children></VBox>
+</content>
+</ScrollPane>
+</children></StackPane>

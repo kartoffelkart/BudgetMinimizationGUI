@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projektaufgabe.fxml.OptionController">
+    <children>
+      <VBox spacing="20.0">
+         <children>
+                <Label styleClass="label-header" text="Einstellungen">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label><HBox spacing="100.0">
+<children>
+<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Host" />
+<TextField fx:id="host" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+</children>
+</HBox><HBox spacing="100.0">
+<children>
+<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Port" />
+<TextField fx:id="port" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+</children>
+</HBox>
+            <HBox spacing="100.0">
+               <children>
+                      <Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Datenbank" />
+                      <TextField fx:id="db" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+               </children>
+            </HBox>
+<HBox layoutX="10.0" layoutY="168.0" spacing="100.0">
+<children>
+<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Username" />
+<TextField fx:id="username" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+</children>
+</HBox>
+<HBox layoutX="10.0" layoutY="217.0" spacing="100.0">
+<children>
+<Label maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Passwort" /><PasswordField fx:id="passwort" prefHeight="25.0" prefWidth="200.0" />
+</children>
+</HBox><Button fx:id="settings" mnemonicParsing="false" onAction="#handleEinstellungen" text="Übernehmen" />
+         </children>
+      </VBox>
+    </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</StackPane>
