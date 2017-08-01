@@ -39,7 +39,8 @@
 </HBox>
 <HBox layoutX="10.0" layoutY="217.0" spacing="100.0">
 <children>
-<Label maxWidth="125.0" minWidth="70.0" prefHeight="17.0" prefWidth="125.0" text="Pool" /><PasswordField fx:id="passwortPOOL" prefHeight="25.0" prefWidth="200.0" />
+<Label maxWidth="125.0" minWidth="70.0" prefHeight="17.0" prefWidth="125.0" text="Pool" />
+                  <TextField fx:id="passwortPOOL" maxWidth="201.0" minWidth="200.0" prefHeight="25.0" prefWidth="201.0" />
 </children>
 </HBox><Button fx:id="settingsUEBERNEHMEN" mnemonicParsing="false" onAction="#handleEinstellungen" text="Übernehmen" />
          </children>
