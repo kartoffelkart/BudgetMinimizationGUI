@@ -7,6 +7,8 @@ package projektaufgabe;
 
 import csunibonn.ris.javafx.platform.JavaFXPlatform;
 import csunibonn.ris.javafx.platform.settings.PlatformSettingsManager;
+import instancefactory.service.Partition;
+import instancefactory.service.Tools;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,7 +93,7 @@ public class Projektaufgabe extends Application {
 
     }
 
-    public void startInstanceFactory(String schrittlaenge, String pool, String maxKnotenzahl,String min, String max ) {
+    public void startInstanceFactory(Integer schrittlaenge, Integer pool, Integer maxKnotenzahl,Integer min, Integer max, String filename) {
 //        PlatformSettingsManager man = PlatformSettingsManager.getInstance();
 //        man.storeCustomElement("hibernate.connection.url", urli);
 //        man.storeCustomElement("hibernate.connection.username", user);
@@ -113,7 +115,61 @@ public class Projektaufgabe extends Application {
 //        } catch (IOException | TransformerException ex) {
 //            Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        //TODO: STARTEN
+        Tools tool = new Tools();
+
+
+//        Partition inst0;
+//        Partition instA;
+//        Partition instB;
+//        Partition instC;
+//        Partition instD;
+//        Partition instE;
+         Partition instF;
+          Partition instG;
+
+//        inst0 = tool.getBspPartition();
+//
+//        instA = tool.getBspA();
+//        instB = tool.getBspB();
+//        instC = tool.getBspC();
+//        instD = tool.getBspD();
+//        instE = tool.getBspE();
+        instF = tool.getBspF();
+        instG = tool.getBspG();
+
+//        
+//         Partition instance = new Partition();
+//        instance = tool.getBspPartition();
+//        tool.superFunctionStatistik(1, 100, 32);/*(1, 100, 32);*/ // todo: hier kann ich Spektrum der Eintraege vergrößern
+        System.out.println("makeSortedSellsUnionAndBudgetAndBalance");
+        Partition p = new Partition();
+        Partition p1 = instF;
+        Partition p2 = instG;
+
+        tool.makeSortedSellsUnionAndBudgetAndBalance(p, p1, p2);
+
+//        MyArrayList<MyInteger> expResult = instance.sortedSells;
+//        MyArrayList<MyInteger> result = p.sortedSells;
+//        Integer expResult = instance.getBudget();
+//        Integer result = p.getBudget();
+        Integer expResult = -8;
+        Integer result = p.getBalance();
+
+//        System.out.println("expResult : "+expResult);
+//        System.out.println("result : "+result);
+        System.out.println("expResult : " + expResult);
+        System.out.println("result : " + result);
+
+        System.out.println("FERTIG               !!!!!!!!!!!!!!!!!");
+
+       
+
+        tool.buildIstanceMakeHeuristicsAndOut(min, max, maxKnotenzahl);
+
+      
+        
+
+        tool.outStatistikN(filename, min, max, maxKnotenzahl, schrittlaenge, pool);
 
     }
 

@@ -7,6 +7,7 @@ package projektaufgabe.fxml;
 
 import csunibonn.ris.javafx.platform.PlatformActionHandler;
 import csunibonn.ris.javafx.platform.components.PlatformOption;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -35,18 +36,20 @@ public class OptionController implements Initializable, PlatformOption {
     @FXML
     private TextField dbMAX;
     @FXML
+    private TextField dateiname;
+    @FXML
     private TextField usernameSCHRITTLAENGE;
     @FXML
     private TextField passwortPOOL;
     @FXML
     private Button settingsUEBERNEHMEN;
 
-    public String schrittlaenge;
-    public String pool;
-    public String urli;
-    public String maxKnotenzahl;
-    public String min;
-    public String max;
+    public Integer schrittlaenge;
+    public Integer pool;
+    public Integer maxKnotenzahl;
+    public Integer min;
+    public Integer max;
+    public String filename;
     private Projektaufgabe caller;
     private PlatformActionHandler handler = PlatformActionHandler.getInstance();
 //    private final Service service = Service.getInstance();
@@ -57,10 +60,11 @@ public class OptionController implements Initializable, PlatformOption {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       hostMIN.setText("1" );
-      dbMAX.setText("30");
+      dbMAX.setText("100");
       portMAXKNOTENZAHL.setText("15");
       passwortPOOL.setText("5");
       usernameSCHRITTLAENGE.setText("2");
+      dateiname.setText("test");
         // TODO
     }
 
@@ -69,18 +73,19 @@ public class OptionController implements Initializable, PlatformOption {
     }
 
     @FXML
-    private void handleEinstellungen() {
+    private void handleEinstellungen() throws IOException {
 
-        maxKnotenzahl = portMAXKNOTENZAHL.getText();
-        min = hostMIN.getText();
-        max = dbMAX.getText();
+        maxKnotenzahl = Integer.parseInt(portMAXKNOTENZAHL.getText());
+        min = Integer.parseInt(hostMIN.getText());
+        max = Integer.parseInt(dbMAX.getText());
+        schrittlaenge = Integer.parseInt(usernameSCHRITTLAENGE.getText());
+        pool = Integer.parseInt(passwortPOOL.getText());
+        filename=dateiname.getText();
         
-//        urli = "jdbc:postgresql://"+hosti+":"+porti+"/"+dbi;
-//        jdbc:postgresql://localhost:5432/projektaufgabe
-        schrittlaenge = usernameSCHRITTLAENGE.getText();
-        pool = passwortPOOL.getText();
-        
-        caller.startInstanceFactory(schrittlaenge, pool,maxKnotenzahl,min,max);
+        caller.startInstanceFactory(schrittlaenge, pool,maxKnotenzahl,min,max,filename);
+        Process process = new ProcessBuilder("C:\\Program Files\\MATLAB\\R2013a\\bin").start();
+        //        Process process = new ProcessBuilder("C:\\Program Files\\MATLAB\\R2013a\\bin>matlab.exe"," -r","run('C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\Bachelorarbeit.m');").start();
+
         Stage stage = (Stage) settingsUEBERNEHMEN.getScene().getWindow();
         stage.close();
 

@@ -42,7 +42,14 @@
 <Label maxWidth="125.0" minWidth="70.0" prefHeight="17.0" prefWidth="125.0" text="Pool" />
                   <TextField fx:id="passwortPOOL" maxWidth="201.0" minWidth="200.0" prefHeight="25.0" prefWidth="201.0" />
 </children>
-</HBox><Button fx:id="settingsUEBERNEHMEN" mnemonicParsing="false" onAction="#handleEinstellungen" text="Übernehmen" />
+</HBox>
+            <HBox spacing="100.0">
+               <children>
+                  <Label maxWidth="125.0" minWidth="70.0" prefHeight="17.0" prefWidth="125.0" text="Dateiname" />
+                  <TextField fx:id="dateiname" maxWidth="201.0" minWidth="200.0" prefHeight="25.0" prefWidth="201.0" />
+               </children>
+            </HBox>
+            <Button fx:id="settingsUEBERNEHMEN" mnemonicParsing="false" onAction="#handleEinstellungen" text="Übernehmen" />
          </children>
       </VBox>
     </children>
