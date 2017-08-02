@@ -20,6 +20,12 @@ import projektaufgabe.Projektaufgabe;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import matlabcontrol.MatlabConnectionException;
+import matlabcontrol.MatlabInvocationException;
+import matlabcontrol.MatlabProxy;
+import matlabcontrol.MatlabProxyFactory;
+import matlabcontrol.MatlabProxyFactoryOptions;
+
 /**
  * FXML Controller class
  *
@@ -59,12 +65,12 @@ public class OptionController implements Initializable, PlatformOption {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      hostMIN.setText("1" );
-      dbMAX.setText("100");
-      portMAXKNOTENZAHL.setText("15");
-      passwortPOOL.setText("5");
-      usernameSCHRITTLAENGE.setText("2");
-      dateiname.setText("test");
+        hostMIN.setText("1");
+        dbMAX.setText("100");
+        portMAXKNOTENZAHL.setText("15");
+        passwortPOOL.setText("5");
+        usernameSCHRITTLAENGE.setText("2");
+        dateiname.setText("test");
         // TODO
     }
 
@@ -73,22 +79,33 @@ public class OptionController implements Initializable, PlatformOption {
     }
 
     @FXML
-    private void handleEinstellungen() throws IOException {
+    private void handleEinstellungen() throws IOException, MatlabConnectionException, MatlabInvocationException {
 
         maxKnotenzahl = Integer.parseInt(portMAXKNOTENZAHL.getText());
         min = Integer.parseInt(hostMIN.getText());
         max = Integer.parseInt(dbMAX.getText());
         schrittlaenge = Integer.parseInt(usernameSCHRITTLAENGE.getText());
         pool = Integer.parseInt(passwortPOOL.getText());
-        filename=dateiname.getText();
-        
-        caller.startInstanceFactory(schrittlaenge, pool,maxKnotenzahl,min,max,filename);
-        Process process = new ProcessBuilder("C:\\Program Files\\MATLAB\\R2013a\\bin").start();
-        //        Process process = new ProcessBuilder("C:\\Program Files\\MATLAB\\R2013a\\bin>matlab.exe"," -r","run('C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\Bachelorarbeit.m');").start();
+        filename = dateiname.getText();
 
-        Stage stage = (Stage) settingsUEBERNEHMEN.getScene().getWindow();
-        stage.close();
+        caller.startInstanceFactory(schrittlaenge, pool, maxKnotenzahl, min, max, filename);
 
+
+        MatlabProxyFactoryOptions options = new MatlabProxyFactoryOptions.Builder()
+                .setUsePreviouslyControlledSession(true)
+                .setHidden(true)
+                .setMatlabLocation(null).build();
+
+        MatlabProxyFactory factory = new MatlabProxyFactory(options);
+        MatlabProxy proxy = factory.getProxy();
+
+        proxy.eval("addpath('C:\\Program Files\\MATLAB\\R2013a\\bin')");
+
+        proxy.feval("bachelorarbeit");
+
+//        proxy.disconnect();
+//        Stage stage = (Stage) settingsUEBERNEHMEN.getScene().getWindow();
+//        stage.close();
     }
 
     @Override

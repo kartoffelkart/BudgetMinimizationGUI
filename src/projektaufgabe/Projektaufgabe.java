@@ -57,6 +57,8 @@ public class Projektaufgabe extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        
+        Process process = new ProcessBuilder("C:\\Program Files\\MATLAB\\R2013a\\bin\\matlab.exe").start();
 
         stage = primaryStage;
         app = new JavaFXPlatform(getClass(), "configuration.xml");
