@@ -924,10 +924,10 @@ public  Printer printer=new Printer();
         return newList;
     }
 
-    public void outStatistikN(String dateiname, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
+    public void outStatistikN(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
 
-        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + dateiname + "DatenX.txt");
-        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + dateiname + "DatenY.txt");
+        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenX.txt");
+        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenY.txt");
 
         try {
 //            file.mkdirs();
@@ -977,7 +977,7 @@ public  Printer printer=new Printer();
                 for (int count = 0; count < pool; count++) {
                     instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
                     Graph newGraph = new Graph(instance, randomOrdering);
-                    newGraph = getGraphHeuristik(newGraph, "swap");
+                    newGraph = getGraphHeuristik(newGraph, heuristik);
                     System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
                     System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.minBudgetSwap);
 

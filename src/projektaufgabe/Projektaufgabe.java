@@ -95,7 +95,7 @@ public class Projektaufgabe extends Application {
 
     }
 
-    public void startInstanceFactory(Integer schrittlaenge, Integer pool, Integer maxKnotenzahl,Integer min, Integer max, String filename) {
+    public void startInstanceFactory(Integer schrittlaenge, Integer pool, Integer maxKnotenzahl,Integer min, Integer max, String heuristik) {
 //        PlatformSettingsManager man = PlatformSettingsManager.getInstance();
 //        man.storeCustomElement("hibernate.connection.url", urli);
 //        man.storeCustomElement("hibernate.connection.username", user);
@@ -171,7 +171,7 @@ public class Projektaufgabe extends Application {
       
         
 
-        tool.outStatistikN(filename, min, max, maxKnotenzahl, schrittlaenge, pool);
+        tool.outStatistikN(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
 
     }
 

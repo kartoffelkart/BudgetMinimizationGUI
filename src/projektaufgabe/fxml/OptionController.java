@@ -55,7 +55,7 @@ public class OptionController implements Initializable, PlatformOption {
     public Integer maxKnotenzahl;
     public Integer min;
     public Integer max;
-    public String filename;
+    public String heuristik;
     private Projektaufgabe caller;
     private PlatformActionHandler handler = PlatformActionHandler.getInstance();
 //    private final Service service = Service.getInstance();
@@ -70,7 +70,7 @@ public class OptionController implements Initializable, PlatformOption {
         portMAXKNOTENZAHL.setText("15");
         passwortPOOL.setText("5");
         usernameSCHRITTLAENGE.setText("2");
-        dateiname.setText("test");
+        dateiname.setText("swap");
         // TODO
     }
 
@@ -86,9 +86,9 @@ public class OptionController implements Initializable, PlatformOption {
         max = Integer.parseInt(dbMAX.getText());
         schrittlaenge = Integer.parseInt(usernameSCHRITTLAENGE.getText());
         pool = Integer.parseInt(passwortPOOL.getText());
-        filename = dateiname.getText();
+        heuristik = dateiname.getText();
 
-        caller.startInstanceFactory(schrittlaenge, pool, maxKnotenzahl, min, max, filename);
+        caller.startInstanceFactory(schrittlaenge, pool, maxKnotenzahl, min, max, heuristik);
 
 
         MatlabProxyFactoryOptions options = new MatlabProxyFactoryOptions.Builder()
