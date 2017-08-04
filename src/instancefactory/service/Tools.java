@@ -979,9 +979,9 @@ public  Printer printer=new Printer();
                     Graph newGraph = new Graph(instance, randomOrdering);
                     newGraph = getGraphHeuristik(newGraph, heuristik);
                     System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
-                    System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.minBudgetSwap);
+                    System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
 
-                    double currentOut = (double)instance.getBudget() / instance.minBudgetSwap;
+                    double currentOut = (double)instance.getBudget() / instance.getMinBudget(heuristik);
                     System.out.println("currentOut : //////////////////////////////////////////////////////!!!                      " + currentOut);
                     if (currentOut > 1) {
                         System.err.println("falsch berechnet: sorted sells schlechter als swap");
@@ -1040,11 +1040,11 @@ public  Printer printer=new Printer();
         }
 
         if (update.equals("swap")) {
-            currentGraph.getPartition().minBudgetSwap = currentGraph.getMinBudget();
+            currentGraph.getPartition().setMinBudgetSwap( currentGraph.getMinBudget());
         }
 
         if (update.equals("changeOrder")) {
-            currentGraph.getPartition().minBudgetChangeOrder = currentGraph.getMinBudget();
+            currentGraph.getPartition().setMinBudgetChangeOrder(currentGraph.getMinBudget());
         }
         return currentGraph;
     }

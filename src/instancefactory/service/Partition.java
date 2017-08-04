@@ -28,8 +28,10 @@ public class Partition {
 
     private Integer minBudgetCompare;
 
-    public Integer minBudgetSwap;
-    public Integer minBudgetChangeOrder;
+    private Integer minBudgetSwap;
+
+   
+    private Integer minBudgetChangeOrder;
 
     public Integer minBudgetRandomOrder;
 
@@ -73,7 +75,21 @@ public class Partition {
 
     }
 //_____________________________________________________________________________
+ public Integer getMinBudget(String heuristik) {
+        if(heuristik.equals("swap")){     return minBudgetSwap;}else{
+                if(heuristik.equals("changeOrder")){     return minBudgetChangeOrder;}else
 
+                {return null;}}
+    }
+
+    public void setMinBudgetSwap(Integer minBudgetSwap) {
+        this.minBudgetSwap = minBudgetSwap;
+    }
+
+    public void setMinBudgetChangeOrder(Integer minBudgetChangeOrder) {
+        this.minBudgetChangeOrder = minBudgetChangeOrder;
+    }
+    
     public Integer getMinBudgetCompare() {
         return minBudgetCompare;
     }

@@ -70,7 +70,7 @@ public class OptionController implements Initializable, PlatformOption {
         portMAXKNOTENZAHL.setText("15");
         passwortPOOL.setText("5");
         usernameSCHRITTLAENGE.setText("2");
-        dateiname.setText("swap");
+        dateiname.setText("changeOrder");
         // TODO
     }
 
@@ -99,7 +99,7 @@ public class OptionController implements Initializable, PlatformOption {
         MatlabProxyFactory factory = new MatlabProxyFactory(options);
         MatlabProxy proxy = factory.getProxy();
 
-        proxy.eval("addpath('C:\\Program Files\\MATLAB\\R2013a\\bin')");
+        proxy.eval("addpath('C:\\Users\\Soyo\\Desktop\\Bachelorarbeit')");
 
         proxy.feval("bachelorarbeit");
 
