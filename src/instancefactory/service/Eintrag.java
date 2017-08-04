@@ -10,8 +10,8 @@ package instancefactory.service;
  * @author Sonja Schäfer sonja_schaefer@gmx.de
  */
 public class Eintrag {
-  Integer value;
-  MyInteger node;
+  public Integer value;
+  public MyInteger node;
 
     @Override
     public String toString() {

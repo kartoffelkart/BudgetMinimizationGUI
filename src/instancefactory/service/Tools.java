@@ -5,6 +5,7 @@
  */
 package instancefactory.service;
 
+import instancefactory.out.Printer;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,7 +32,8 @@ public class Tools {
      */
     public MyArrayList<MyInteger> randomOrdering;
 //    public MyArrayList<MyInteger> s1Rest;
-
+public  Printer printer=new Printer();
+ 
     public MyArrayList<Partition> makeBasicPartitions(int min, int max, int size) {
 //        MyArrayList<MyInteger> randomMyIntMyArrayList = this.getDeterministicMyIntArray();
        MyArrayList<MyInteger> randomMyIntMyArrayList = this.getRandomMyIntArray(min, max, size);
@@ -924,8 +926,8 @@ public class Tools {
 
     public void outStatistikN(String dateiname, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
 
-        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\" + dateiname + "DatenX.txt");
-        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\" + dateiname + "DatenY.txt");
+        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + dateiname + "DatenX.txt");
+        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + dateiname + "DatenY.txt");
 
         try {
 //            file.mkdirs();
@@ -1002,33 +1004,7 @@ public class Tools {
     }
 // todo: Hier gebe ich Integer minBudget zurück
 
-    public void out(Graph currentGraph, String dateiname) {
-
-        File file2 = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\" + dateiname + "Daten.txt");
-//        File file2 = new File("X:\\speedee\\mitarbeiter\\sonja_schäfer\\Bachelorarbeit\\SortedSellsInstance.txt");
-        try {
-//            file.mkdirs();
-            file2.createNewFile();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-
-        try {
-            PrintWriter pr = new PrintWriter(file2);
-            pr.println(0);
-
-            for (int j = 0; j < currentGraph.getEintraege().size(); j++) {
-
-                pr.println(currentGraph.getEintraege().get(j).value);
-            }
-
-            pr.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("No such file exists.");
-        }
-
-    }
+ 
 
     public Graph getGraphHeuristik(Graph currentGraph, String update) {
         System.out.println("nochmal der Graph nach Heuristik : Budget " + currentGraph.getMinBudget());
@@ -1139,19 +1115,19 @@ public class Tools {
 
         newGraph = new Graph(instance, instance.sortedSells);
         System.out.println("Sorted Sells: ");
-        out(newGraph, "sortedSells");
+        this.printer.out(newGraph, "sortedSells");
 
         newGraph = new Graph(instance, randomOrdering);
         System.out.println("currentGraph also ersmal Random : Budget " + newGraph.getMinBudget());
 
         System.out.println("Random: ");
-        out(newGraph, "random");
+        printer.out(newGraph, "random");
 
         System.out.println("AfterSwap: ");
-        out(getGraphHeuristik(newGraph, "swap"), "afterSwap");
+        printer.out(getGraphHeuristik(newGraph, "swap"), "afterSwap");
 
         System.out.println("AfterChangeOrder: ");
-        out(getGraphHeuristik(newGraph, "changeOrder"), "afterChangeOrder");
+        printer.out(getGraphHeuristik(newGraph, "changeOrder"), "afterChangeOrder");
     }
 
 //    public void superFunctionStatistik(int min, int max, int size) {

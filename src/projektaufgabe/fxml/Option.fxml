@@ -19,18 +19,18 @@
 <Label maxWidth="127.0" minWidth="70.0" prefHeight="17.0" prefWidth="127.0" text="Minimaler Knotenwert" />
 <TextField fx:id="hostMIN" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
 </children>
-</HBox><HBox spacing="100.0">
-<children>
-<Label maxWidth="127.0" minWidth="70.0" prefHeight="17.0" prefWidth="127.0" text="Maximale Instanzgröße" />
-<TextField fx:id="portMAXKNOTENZAHL" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
-</children>
 </HBox>
             <HBox spacing="100.0">
                <children>
                       <Label maxWidth="125.0" minWidth="70.0" prefHeight="17.0" prefWidth="125.0" text="Maximaler Knotenwert" />
                       <TextField fx:id="dbMAX" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
                </children>
-            </HBox>
+            </HBox><HBox spacing="100.0">
+<children>
+<Label maxWidth="127.0" minWidth="70.0" prefHeight="17.0" prefWidth="127.0" text="Maximale Instanzgröße" />
+<TextField fx:id="portMAXKNOTENZAHL" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+</children>
+</HBox>
 <HBox layoutX="10.0" layoutY="168.0" spacing="100.0">
 <children>
 <Label maxWidth="185.0" minWidth="70.0" prefHeight="17.0" prefWidth="124.0" text=" Instanzgröße Schritt" />
