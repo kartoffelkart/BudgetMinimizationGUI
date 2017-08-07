@@ -55,10 +55,7 @@ public class Partition {
         adjacencyList = new MyArrayList<MyArrayList<MyInteger>>();
         probability = 1;
         sortedSells = new MyArrayList<>();
-
-        // todo: nächste Zeile weg
         positiveSets = new MyArrayList<MySet>();
-//    calculatedGraphOfSortedSells= new Graph(this, sortedSells);
 
     }
 //_____________________________________________________________________________
@@ -69,9 +66,7 @@ public class Partition {
         adjacencyList = newMyArrayList;
         probability = 1;
         sortedSells = newSortedSells;
-        // todo: nächste Zeile weg
         positiveSets = new MyArrayList<MySet>();
-//   calculatedGraphOfSortedSells= new Graph(this, sortedSells);
 
     }
 //_____________________________________________________________________________
@@ -99,9 +94,9 @@ public class Partition {
 //        Graph calculatedGraphOfSortedSells= new Graph(this, sortedSells);
 //        if (!(calculatedGraphOfSortedSells.getMinBudget().intValue() > budget)) {
 //            this.minBudgetCompare = minBudgetCompare;
-//             System.out.println("Klaro budget" + budget + "ist größer oder gleich budget vom neuen HeuristikGraphen" + minBudgetCompare.intValue());
+//             //System.out.println("Klaro budget" + budget + "ist größer oder gleich budget vom neuen HeuristikGraphen" + minBudgetCompare.intValue());
 //        } else {
-//            System.out.println("Ohje budget" + budget + " ist kleiner budget vom neuen HeuristikGraphen" + minBudgetCompare.intValue());
+//            //System.out.println("Ohje budget" + budget + " ist kleiner budget vom neuen HeuristikGraphen" + minBudgetCompare.intValue());
 //
 //        }
 
@@ -193,7 +188,7 @@ public class Partition {
 // berechnet die Summe von Boughts------------------------------
 
         sumNewBoughts = newTool.getSum(newBought);
-        System.out.println("sumNewBoughts :" + sumNewBoughts);
+        //System.out.println("sumNewBoughts :" + sumNewBoughts);
 
         if (index > 0) {
             int lastBalance = (balanceBoughtsBudgetOfSetUpToIndex.get(index - 1)).getBalance();
@@ -208,7 +203,7 @@ public class Partition {
             budget = Integer.min(lastBudget, lastBalance - sumNewBoughts);
 
         } else {
-            System.out.println("Das ist der Anfang. Hier war der Index 0.");
+            //System.out.println("Das ist der Anfang. Hier war der Index 0.");
             balance = -sumNewBoughts + sortedSells.get(index).i;
             budget = -sumNewBoughts;
         }
@@ -221,9 +216,9 @@ public class Partition {
             balanceBoughtsBudgetOfSetUpToIndex.add(index, newEintrag);
             //drucken
 
-            System.out.println("Balance, Bought, Budget of Set Up to Inde : " + balanceBoughtsBudgetOfSetUpToIndex.get(index).toString());
+            //System.out.println("Balance, Bought, Budget of Set Up to Inde : " + balanceBoughtsBudgetOfSetUpToIndex.get(index).toString());
         } else {
-            System.out.println("Error falscher Index");
+            //System.out.println("Error falscher Index");
         }
 
     }
@@ -250,17 +245,17 @@ public class Partition {
      */
     public boolean orderingFitsBudget() {
 
-        System.out.println("orderingFitsBudget()");
+        //System.out.println("orderingFitsBudget()");
         Graph newTestGraph = new Graph(this, sortedSells);
-        System.out.println("newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
-        System.out.println("budget" + budget);
+        //System.out.println("newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
+        //System.out.println("budget" + budget);
         if ((newTestGraph.getMinBudget().equals(budget))) {
-            System.out.println("Gut ! Budget von Partition passt zu den SortedSells");
+            //System.out.println("Gut ! Budget von Partition passt zu den SortedSells");
 
             return true;
         } else {
-            System.out.println("newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
-            System.out.println("newTestGraph.getMinBudget()" + newTestGraph.getMinBudget() + "budget" + budget);
+            //System.out.println("newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
+            //System.out.println("newTestGraph.getMinBudget()" + newTestGraph.getMinBudget() + "budget" + budget);
             System.err.println("newTestGraph.getMinBudget()" + newTestGraph.getMinBudget() + "budget" + budget + "Fehler ! Budget von Partition passt nicht zu den SortedSells");
 
             return false;
@@ -283,14 +278,14 @@ public class Partition {
         for (int i = 0; i < returnList.size(); i++) {
             newTestGraph = new Graph(this, returnList.get(i));
             if (probablyBest < newTestGraph.getMinBudget()) {
-                System.out.println("Fehler ! SortedSells ist in der Partition nicht die optimale Reihenfolge");
-                System.out.println("mit neuer Permutation newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
-                System.out.println("probablyBest" + probablyBest);
+                //System.out.println("Fehler ! SortedSells ist in der Partition nicht die optimale Reihenfolge");
+                //System.out.println("mit neuer Permutation newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
+                //System.out.println("probablyBest" + probablyBest);
 
                 return false;
             }
         }
-        System.out.println("Gut ! SortedSells ist in der Partition die optimale Reihenfolge");
+        //System.out.println("Gut ! SortedSells ist in der Partition die optimale Reihenfolge");
         return true;
 
     }
@@ -363,49 +358,7 @@ public class Partition {
         return newListSumOfBoughts;
     }
 
-//    public adjacencyList<Partition> getPositiveSetsList() {
-//
-//        if (this.positiveSetsList == null) {
-//
-//            positiveSetsList = calculatePositiveSetsList();
-//        }
-//
-//        return positiveSetsList;
-//    }
-//
-//    private adjacencyList<Partition> calculatePositiveSetsList() {
-//        adjacencyList<Partition> newPositiveSetsList = new adjacencyList<>();
-//for(int i = 0;i<eintraege.size();i++){
-//if(eintraege.get(i).value >0){
-// 
-//Partition positiveMinimalSet = new Partition();
-//// todo: die AllreadyBought müssen entfernt werden
-// adjacencyList<MyInteger> newBoughts = new adjacencyList<>();
-//int m = 0; m++) {
-//      while( ! eintraege.get(i).node==sortedSells.get(m-1)){
-//     newBoughts.addAll(sortedSells.get(m).g)
-//      m++;    
-// }
-//        //--------------------------------------------------------------------------------------------------------------------
-////if (position==null) würde ja gerne prüfen ob das initialisiert wurde
-//        newBought = getBoughtsOfSell(sortedSells.get(index)); //hier holen wir alle für den Sell benötigten Boughts
-//
-//        newBought.removeAll(allreadyBought);//hier entfernen wir alle, die schon gekauft waren
-//
-//        allreadyBought.addAll(newBought);//hier vermerken wir die neu gekauften boughts als gekauft
-//// berechnet die Summe von Boughts------------------------------
-//
-//
-////-----------
-//positiveMinimalSet.adjacencyList= (adjacencyList<MyArrayList<MyInteger>>)getArrayAbschnitt(adjacencyList, 0, i);
-//positiveMinimalSet.eintraege=getArrayAbschnitt(eintraege, i, j)
-//}
-//
-//
-//
-//}
-//        
-//    }
+
     public int getBudget() {
         if (this.budget == null) {
 

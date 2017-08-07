@@ -38,7 +38,7 @@ public class Projektaufgabe extends Application {
 //            
 //            @Override
 //            public void handle(ActionEvent event) {
-//                System.out.println("Hello World!");
+//                //System.out.println("Hello World!");
 //            }
 //        });
 //        
@@ -71,7 +71,7 @@ public class Projektaufgabe extends Application {
 //
 //            @Override
 //            public void handle(WindowEvent event) {
-//                System.out.println("test");
+//                //System.out.println("test");
 //                HibernateUtil.getInstance().close();
 //            }
 //        });
@@ -103,7 +103,7 @@ public class Projektaufgabe extends Application {
 //        man.storeCustomElement("hibernate.connection.password", pw);
 //
 //        man.storeCustomElement("preLoadDone", "true");
-//        System.out.println(man.getCustomElement("hibernate.connection.username"));
+//        //System.out.println(man.getCustomElement("hibernate.connection.username"));
 //        try {
 //            app.start(stage);
 //            app.setOnPlatformClose(e -> {
@@ -140,11 +140,8 @@ public class Projektaufgabe extends Application {
         instF = tool.getBspF();
         instG = tool.getBspG();
 
-//        
-//         Partition instance = new Partition();
-//        instance = tool.getBspPartition();
-//        tool.superFunctionStatistik(1, 100, 32);/*(1, 100, 32);*/ // todo: hier kann ich Spektrum der Eintraege vergrößern
-        System.out.println("makeSortedSellsUnionAndBudgetAndBalance");
+
+        //System.out.println("makeSortedSellsUnionAndBudgetAndBalance");
         Partition p = new Partition();
         Partition p1 = instF;
         Partition p2 = instG;
@@ -158,12 +155,12 @@ public class Projektaufgabe extends Application {
         Integer expResult = -8;
         Integer result = p.getBalance();
 
-//        System.out.println("expResult : "+expResult);
-//        System.out.println("result : "+result);
-        System.out.println("expResult : " + expResult);
-        System.out.println("result : " + result);
+//        //System.out.println("expResult : "+expResult);
+//        //System.out.println("result : "+result);
+        //System.out.println("expResult : " + expResult);
+        //System.out.println("result : " + result);
 
-        System.out.println("FERTIG               !!!!!!!!!!!!!!!!!");
+        //System.out.println("FERTIG               !!!!!!!!!!!!!!!!!");
 
        
 
@@ -173,6 +170,8 @@ public class Projektaufgabe extends Application {
         
 
         tool.outStatistikN(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
+//                tool.outMinBudgetDevelopment(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
+
 
     }
 

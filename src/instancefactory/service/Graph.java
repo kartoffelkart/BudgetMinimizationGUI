@@ -70,10 +70,10 @@ public class Graph {
         
         for (int i = 0; i < ordering.size(); i++) {
             MyArrayList<MyInteger> newB = p.getBoughtsOfSell(ordering.get(i));
-                System.out.println("newB    :   " + newB);
+                //System.out.println("newB    :   " + newB);
             newB.removeAll(allready);//hier entfernen wir alle, die schon gekauft waren
             allready.addAll(newB);
-                System.out.println("newB ohne Allready   :   " + newB);
+                //System.out.println("newB ohne Allready   :   " + newB);
             
             for (int j = 0; j < newB.size(); j++) {
                 

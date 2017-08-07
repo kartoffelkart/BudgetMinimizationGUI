@@ -39,7 +39,7 @@ public class Printer {
             pr.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("No such file exists.");
+            //System.out.println("No such file exists.");
         }
 
     }

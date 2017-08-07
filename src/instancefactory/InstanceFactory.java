@@ -51,7 +51,7 @@ public class InstanceFactory {
 ////         Partition instance = new Partition();
 ////        instance = tool.getBspPartition();
 ////        tool.superFunctionStatistik(1, 100, 32);/*(1, 100, 32);*/ // todo: hier kann ich Spektrum der Eintraege vergrößern
-//        System.out.println("makeSortedSellsUnionAndBudgetAndBalance");
+//        //System.out.println("makeSortedSellsUnionAndBudgetAndBalance");
 //        Partition p = new Partition();
 //        Partition p1 = instF;
 //        Partition p2 = instG;
@@ -65,12 +65,12 @@ public class InstanceFactory {
 //        Integer expResult = -8;
 //        Integer result = p.getBalance();
 //
-////        System.out.println("expResult : "+expResult);
-////        System.out.println("result : "+result);
-//        System.out.println("expResult : " + expResult);
-//        System.out.println("result : " + result);
+////        //System.out.println("expResult : "+expResult);
+////        //System.out.println("result : "+result);
+//        //System.out.println("expResult : " + expResult);
+//        //System.out.println("result : " + result);
 //
-//        System.out.println("FERTIG               !!!!!!!!!!!!!!!!!");
+//        //System.out.println("FERTIG               !!!!!!!!!!!!!!!!!");
 //
 //        int min = 1;
 //        int max = 100;

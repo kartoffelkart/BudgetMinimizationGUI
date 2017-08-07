@@ -45,7 +45,7 @@ public  Printer printer=new Printer();
             Partition partition1 = new Partition();
             currentRandom = randomMyIntMyArrayList.get(k);
 
-            System.out.println("Aktueller Sell :" + currentRandom);
+            //System.out.println("Aktueller Sell :" + currentRandom);
             k++;
             MyArrayList<MyInteger> l = new MyArrayList<>();
             l.add(currentRandom);
@@ -59,7 +59,7 @@ public  Printer printer=new Printer();
 
             currentRandom = randomMyIntMyArrayList.get(k);
 
-            System.out.println("Aktueller Bought : " + currentRandom);
+            //System.out.println("Aktueller Bought : " + currentRandom);
             Partition currentPartition = partitions.get(partitions.size() - 1);
             currentPartition.adjacencyList.get(0).add(currentRandom);
             currentPartition.setBalance(partitions.get(partitions.size() - 1).getBalance() - currentRandom.i);
@@ -107,22 +107,22 @@ public  Printer printer=new Printer();
             Partition partition = new Partition();
             Partition partitionA = new Partition();
             partitionA = this.getRandomPartitionDueToProbality(partitions);
-            System.out.println("partitionA: " + partitionA.toString() + "\n");
+            //System.out.println("partitionA: " + partitionA.toString() + "\n");
 
             Partition partitionB = new Partition();
             partitionB = this.getRandomPartitionDueToProbality(partitions);
-            System.out.println("partitionB: " + partitionB.toString() + "\n");
+            //System.out.println("partitionB: " + partitionB.toString() + "\n");
 
             while (partitionA == partitionB) {
                 partitionB = this.getRandomPartitionDueToProbality(partitions);
-                System.out.println("partitionB: " + partitionB.toString() + "\n");
+                //System.out.println("partitionB: " + partitionB.toString() + "\n");
 
             }
             //---------------------------------------------------------------------------------
             partition = this.makePartition(partitionA, partitionB, unionProbability, leftJoinProbability, rightJoinProbability);//size 0 ???
-            System.out.println("MergedPartition: " + partition.toString() + "\n");
-            System.out.println("Sorted SellsOfMergedPa\n"
-                    + "            //--------------------------------rtition: " + partition.sortedSells.toString() + "\n");
+            //System.out.println("MergedPartition: " + partition.toString() + "\n");
+            //System.out.println("Sorted SellsOfMergedPa\n"
+               //     + "            //--------------------------------rtition: " + partition.sortedSells.toString() + "\n");
 //ASSERTION
             if (!partition.orderingFitsBudget()) {
                 boolean test = partition.isBestOrdering();
@@ -157,7 +157,7 @@ public  Printer printer=new Printer();
 
 //           
         }
-        System.out.println(" Random IntArray :" + randomIntMyArrayList);
+        //System.out.println(" Random IntArray :" + randomIntMyArrayList);
         return randomIntMyArrayList;
     }
 
@@ -180,7 +180,7 @@ public  Printer printer=new Printer();
         for (int it = 0; it < randomIntMyArrayList.size(); it++) {
             if (toogle == 0) {
 
-                MyInteger te = new MyInteger(randomIntMyArrayList.get(it));//todo: so werden die geraden, also die Sells größer
+                MyInteger te = new MyInteger(randomIntMyArrayList.get(it)+100);//todo: so werden die geraden, also die Sells größer
                 randomMyIntMyArrayList.add(te);
 
                 toogle++;
@@ -273,9 +273,9 @@ public  Printer printer=new Printer();
 
             MyArrayList<Integer> numbers = getRandomIntMyArrayList(1, sumProb, 1);//Wieso geht kein einfacher MyInteger
             Integer number = numbers.get(0);
-            System.out.println(number.toString() + "<");
+            //System.out.println(number.toString() + "<");
             sum = sum + partitions.get(y).probability;
-            System.out.println(sum.toString());
+            //System.out.println(sum.toString());
 
             if (number < sum + 1) {
                 partition = partitions.get(y);
@@ -322,7 +322,7 @@ public  Printer printer=new Printer();
         String choice = this.getChoice(unionProbability, leftJoinProbability, rightJoinProbability);
 
 //---------------------------------------------------------------------------------------------
-        System.out.println(choice);
+        //System.out.println(choice);
         if (choice.equals("union")) {
             partition = makePartitionUnion(p1, p2);
 
@@ -335,7 +335,7 @@ public  Printer printer=new Printer();
                     partition = makePartitionJoin(p2, p1);
 
                 } else {
-                    System.out.println("error");
+                    //System.out.println("error");
 
                 }
             }
@@ -362,7 +362,7 @@ public  Printer printer=new Printer();
 
     public Integer makeBudgetJoin(Partition b1, Partition b2) {
         Integer budget = Integer.min(b2.getBudget(), b2.getBalance() + b1.getBudget());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!! Hier " + budget + "b2.getBudget() : " + b2.getBudget() + "b1.getBudget() : " + b1.getBudget());
+        //System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!! Hier " + budget + "b2.getBudget() : " + b2.getBudget() + "b1.getBudget() : " + b1.getBudget());
         return budget;
 
     }
@@ -399,7 +399,7 @@ public  Printer printer=new Printer();
          */
         MyArrayList<MyInteger> sRest = new MyArrayList<>();
         sRest.addAll(p.sortedSells);
-        System.out.println("SRest: " + sRest.toString());
+        //System.out.println("SRest: " + sRest.toString());
 
         Integer count = 0;
         MyArrayList<MyInteger> sellsForCurrentPositiveSet = new MyArrayList<>();
@@ -425,7 +425,7 @@ public  Printer printer=new Printer();
                 //Alles zurücksetzen
                 count = 0;
                 sellsForCurrentPositiveSet = new MyArrayList<>();
-                System.out.println("PositiveSetsPLengths: " + "PositiveSetsPLengthsSumBoughts: " + p.balanceBoughtsBudgetOfSetUpToIndex.toString());//[] ist richtig
+                //System.out.println("PositiveSetsPLengths: " + "PositiveSetsPLengthsSumBoughts: " + p.balanceBoughtsBudgetOfSetUpToIndex.toString());//[] ist richtig
 //                System.sumQuotuienten.println("PositiveSetsPLengthsSumBoughts: " + p.positiveSetsPLengthsSumBoughts.toString());//[0]ist richtig
 
                 //hier will ich alle vorher zurücksetzten balance aber eigentlich auch bought
@@ -457,26 +457,18 @@ public  Printer printer=new Printer();
 
         MyArrayList<MyInteger> newSortedSells = new MyArrayList<>();
         MyArrayList<Eintrag> currentEintraegeP1 = new MyArrayList<>();
-        System.out.println("p1.getEintraege()" + p1.getEintraege());
+        //System.out.println("p1.getEintraege()" + p1.getEintraege());
         Graph calculatedGraphOfSortedSells = new Graph(p1, p1.sortedSells);
         currentEintraegeP1 = (MyArrayList<Eintrag>) calculatedGraphOfSortedSells.getEintraege().clone();
-//        currentEintraegeP1 = (MyArrayList<Eintrag>) p1.getEintraege().clone();// todo: getEinträge
-//        if (currentEintraegeP1.size() < 1) {
-//            System.sumQuotuienten.println("currentEintraegeP1 nach clone" + currentEintraegeP1);
-//
-//        }
-        System.out.println("currentEintraegeP1 nach clone" + currentEintraegeP1);
+
+        //System.out.println("currentEintraegeP1 nach clone" + currentEintraegeP1);
 
         MyArrayList<Eintrag> currentEintraegeP2 = new MyArrayList<>();
-        System.out.println("p2.getEintraege()" + p2.getEintraege());
+        //System.out.println("p2.getEintraege()" + p2.getEintraege());
         calculatedGraphOfSortedSells = new Graph(p2, p2.sortedSells);
         currentEintraegeP2 = (MyArrayList<Eintrag>) calculatedGraphOfSortedSells.getEintraege().clone();
-//        currentEintraegeP2 = (MyArrayList<Eintrag>) p2.getEintraege().clone();
-//        if (currentEintraegeP2.size() < 1) {
-//            System.sumQuotuienten.println("currentEintraegeP2 nach clone" + currentEintraegeP1);
-//
-//        }
-        System.out.println("currentEintraegeP2 nach clone" + currentEintraegeP2);
+
+        //System.out.println("currentEintraegeP2 nach clone" + currentEintraegeP2);
 
         MyArrayList<MyInteger> s1Rest = new MyArrayList<>();
 //        s1Rest = new MyArrayList<>();
@@ -485,25 +477,25 @@ public  Printer printer=new Printer();
         MyArrayList<MyInteger> s2Rest = new MyArrayList<>();
         s2Rest.addAll(p2.sortedSells);
 //----------test
-        System.out.println("currentEintraegeP1:" + currentEintraegeP1);
-        System.out.println("currentEintraegeP2:" + currentEintraegeP2);
-        System.out.println("s1Rest:" + s1Rest);
-        System.out.println("s2Rest:" + s2Rest);
+        //System.out.println("currentEintraegeP1:" + currentEintraegeP1);
+        //System.out.println("currentEintraegeP2:" + currentEintraegeP2);
+        //System.out.println("s1Rest:" + s1Rest);
+        //System.out.println("s2Rest:" + s2Rest);
 //-------------------
 
         fillPositiveSets(p1);
-        System.out.println("PositiveSets 1 : " + p1.positiveSets.toString());//[] ist richtig
+        //System.out.println("PositiveSets 1 : " + p1.positiveSets.toString());//[] ist richtig
 
         fillPositiveSets(p2);
-        System.out.println("PositiveSets 2 : " + p2.positiveSets.toString());//[] ist richtig
+        //System.out.println("PositiveSets 2 : " + p2.positiveSets.toString());//[] ist richtig
 
 //----------test
-        System.out.println("Nach fillPositiveSets:");
+        //System.out.println("Nach fillPositiveSets:");
 
-        System.out.println("currentEintraegeP1:" + currentEintraegeP1);
-        System.out.println("currentEintraegeP2:" + currentEintraegeP2);
-        System.out.println("s1Rest:" + s1Rest);
-        System.out.println("s2Rest:" + s2Rest);
+        //System.out.println("currentEintraegeP1:" + currentEintraegeP1);
+        //System.out.println("currentEintraegeP2:" + currentEintraegeP2);
+        //System.out.println("s1Rest:" + s1Rest);
+        //System.out.println("s2Rest:" + s2Rest);
 //-------------------
 //        
 //        Iterator it1 = PositiveSetsPLengths1Lengths.iterator();
@@ -524,14 +516,14 @@ public  Printer printer=new Printer();
             } else ////////////////////////////////////////////////////////////////////////////////
             {
                 positiveSetAbarbeiten(partitio, currentEintraegeP2, newSortedSells, p2, s2Rest, budgetHelp, balanceHelp, "s2");
-                System.out.println("Balance : " + balanceHelp.toString());
+                //System.out.println("Balance : " + balanceHelp.toString());
             }
 //----------test
-            System.out.println("Nach positiveSets abarbeiten beide nicht leer:");
-            System.out.println("currentEintraegeP1:" + currentEintraegeP1);
-            System.out.println("currentEintraegeP2:" + currentEintraegeP2);
-            System.out.println("s1Rest:" + s1Rest);
-            System.out.println("s2Rest:" + s2Rest);
+            //System.out.println("Nach positiveSets abarbeiten beide nicht leer:");
+            //System.out.println("currentEintraegeP1:" + currentEintraegeP1);
+            //System.out.println("currentEintraegeP2:" + currentEintraegeP2);
+            //System.out.println("s1Rest:" + s1Rest);
+            //System.out.println("s2Rest:" + s2Rest);
 //-------------------
         }
         //////////////////////////////////////////////////////////////////////////////
@@ -539,31 +531,31 @@ public  Printer printer=new Printer();
 
             positiveSetAbarbeiten(partitio, currentEintraegeP1, newSortedSells, p1, s1Rest, budgetHelp, balanceHelp, "s1");
 //----------test
-            System.out.println("Balance : " + balanceHelp.toString());
-            System.out.println("Nach positiveSets abarbeiten p1 nicht leer:");
-            System.out.println("currentEintraegeP1:" + currentEintraegeP1);
-            System.out.println("currentEintraegeP2:" + currentEintraegeP2);
-            System.out.println("s1Rest:" + s1Rest);
-            System.out.println("s2Rest:" + s2Rest);
+            //System.out.println("Balance : " + balanceHelp.toString());
+            //System.out.println("Nach positiveSets abarbeiten p1 nicht leer:");
+            //System.out.println("currentEintraegeP1:" + currentEintraegeP1);
+            //System.out.println("currentEintraegeP2:" + currentEintraegeP2);
+            //System.out.println("s1Rest:" + s1Rest);
+            //System.out.println("s2Rest:" + s2Rest);
 //-------------------
         }
         //////////////////////////////////////////////////////////////////////////
         while (!(p2.positiveSets.isEmpty())) {
             positiveSetAbarbeiten(partitio, currentEintraegeP2, newSortedSells, p2, s2Rest, budgetHelp, balanceHelp, "s2");
 //----------test
-            System.out.println("Balance : " + balanceHelp.toString());
-            System.out.println("Nach positiveSets abarbeiten p2 nicht leer:");
-            System.out.println("currentEintraegeP1:" + currentEintraegeP1);
-            System.out.println("currentEintraegeP2:" + currentEintraegeP2);
-            System.out.println("s1Rest:" + s1Rest);
-            System.out.println("s2Rest:" + s2Rest);
+            //System.out.println("Balance : " + balanceHelp.toString());
+            //System.out.println("Nach positiveSets abarbeiten p2 nicht leer:");
+            //System.out.println("currentEintraegeP1:" + currentEintraegeP1);
+            //System.out.println("currentEintraegeP2:" + currentEintraegeP2);
+            //System.out.println("s1Rest:" + s1Rest);
+            //System.out.println("s2Rest:" + s2Rest);
 //-------------------
         }
         budget = budgetHelp.getNumber();
         balance = balanceHelp.getNumber();
         /////////////////////////////////////////////////////////////////////////////////////////////////
         while ((!s1Rest.isEmpty()) && (!s2Rest.isEmpty())) {
-            // TODO: Das muss jetzt noch in 3 Schleifen solange bis beide SortedSells aufgebraucht sind 
+            
             int minIndexP1 = getIndexOfMin(currentEintraegeP1);
             int minIndexP2 = getIndexOfMin(currentEintraegeP2);
 
@@ -571,18 +563,18 @@ public  Printer printer=new Printer();
             Integer minWertP2 = currentEintraegeP2.get(minIndexP2).value;
             MyArrayList<Eintrag> abschnitt1 = getArrayAbschnitt(currentEintraegeP1, minIndexP1, currentEintraegeP1.size() - 1);
             int help = getIndexOfMax(abschnitt1);
-            System.out.println("help : " + help);
+            //System.out.println("help : " + help);
             int maxIndexP1 = help + minIndexP1;//Indizes werden addiert                                     
 
             MyArrayList<Eintrag> abschnitt2 = getArrayAbschnitt(currentEintraegeP2, minIndexP2, currentEintraegeP2.size() - 1);
             int maxIndexP2 = getIndexOfMax(abschnitt2) + minIndexP2;//warum hier 1 addiert werden muss ist schleierhaft, aber der wird ist immer ienen Index höher
 
             if (!p2.sortedSells.contains(currentEintraegeP2.get(maxIndexP2).node)) {
-                System.out.println("p2.sortedSells" + p2.sortedSells);
-                System.out.println("node" + currentEintraegeP2.get(maxIndexP2).node);
-                System.out.println("index" + maxIndexP2);
+                //System.out.println("p2.sortedSells" + p2.sortedSells);
+                //System.out.println("node" + currentEintraegeP2.get(maxIndexP2).node);
+                //System.out.println("index" + maxIndexP2);
 
-                System.out.println("nein!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                //System.out.println("nein!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             }
 //            if (!s1Rest.contains(currentEintraegeP1.get(maxIndexP1).node)) {
 //
@@ -592,27 +584,27 @@ public  Printer printer=new Printer();
             Integer maxWertP2 = currentEintraegeP2.get(maxIndexP2).value;
 
             //----------test
-            System.out.println("Nach min und max:");
-            System.out.println("currentEintraegeP1:" + currentEintraegeP1);
-            System.out.println("currentEintraegeP2:" + currentEintraegeP2);
-            System.out.println("s1Rest:" + s1Rest);
-            System.out.println("s2Rest:" + s2Rest);
+            //System.out.println("Nach min und max:");
+            //System.out.println("currentEintraegeP1:" + currentEintraegeP1);
+            //System.out.println("currentEintraegeP2:" + currentEintraegeP2);
+            //System.out.println("s1Rest:" + s1Rest);
+            //System.out.println("s2Rest:" + s2Rest);
 //-------------------
 
 /////////////////////////////////////////////
 //            if (Integer.min(minWertP2, maxWertP2 + minWertP1) < Integer.min(minWertP1, maxWertP1 + minWertP2)) {
             if (Integer.min(minWertP2, maxWertP2 + minWertP1) < Integer.min(minWertP1, maxWertP1 + minWertP2)) {
 
-                System.out.println("zuerst die 1. Partition");
+                //System.out.println("zuerst die 1. Partition");
                 MyArrayList<MyInteger> test = new MyArrayList<>();
                 for (int i = 0; i < currentEintraegeP1.size(); i++) {
                     test.add(currentEintraegeP1.get(i).node);
                 }
-                //TODO: ändern
+               
                 if (!(test.containsAll(s1Rest))) {
-                    System.out.println("da stimmts nicht mehr");
+                    //System.out.println("da stimmts nicht mehr");
                 }
-                System.out.println("currentEintraegeP1 : " + currentEintraegeP1);
+                //System.out.println("currentEintraegeP1 : " + currentEintraegeP1);
                 //hier wird es nicht richtig berechnet, der node ist gar nicht drinin s1Rest
                 MyArrayList<Eintrag> abschnitt = getEintraegeBisNodeInclusive(currentEintraegeP1, currentEintraegeP1.get(maxIndexP1).node);
                 if (partitio.getEintraege() == null) {
@@ -632,28 +624,28 @@ public  Printer printer=new Printer();
                 budget = Integer.min(balance + minWertP1, budget);
                 balance = balance + maxWertP1;
 
-                System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
-                System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
+                //System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
+                //System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
 
-                System.out.println("currentEintraegeP1 nach Shift um " + maxWertP1 + "wegen Teil vom Rest verarbeitet ist" + currentEintraegeP1);
+                //System.out.println("currentEintraegeP1 nach Shift um " + maxWertP1 + "wegen Teil vom Rest verarbeitet ist" + currentEintraegeP1);
                 currentEintraegeP1 = shift(currentEintraegeP1, maxWertP1, " p1 ");//Ausgleichsshift
-                System.out.println("currentEintraegeP1 nach Ausgleichsshift um " + maxWertP1 + "ist" + currentEintraegeP1);
+                //System.out.println("currentEintraegeP1 nach Ausgleichsshift um " + maxWertP1 + "ist" + currentEintraegeP1);
 
                 currentEintraegeP1 = getArrayAbschnitt(currentEintraegeP1, maxIndexP1 + 1, currentEintraegeP1.size() - 1);
             } ///////////////////////////////////////////////////////////
             else {
-                System.out.println("zuerst die 2. Partition");
+                //System.out.println("zuerst die 2. Partition");
 
-                System.out.println("currentEintraegeP2" + currentEintraegeP2);
+                //System.out.println("currentEintraegeP2" + currentEintraegeP2);
                 //ASSERTION
 
                 MyArrayList<MyInteger> test = new MyArrayList<>();
                 for (int i = 0; i < currentEintraegeP2.size(); i++) {
                     test.add(currentEintraegeP2.get(i).node);
                 }
-                //TODO: ändern
+               
                 if (!(test.containsAll(s2Rest))) {
-                    System.out.println("da stimmts nicht mehr");
+                    //System.out.println("da stimmts nicht mehr");
                 }
 
                 MyArrayList<Eintrag> abschnitt = getEintraegeBisNodeInclusive(currentEintraegeP2, currentEintraegeP2.get(maxIndexP2).node);
@@ -675,17 +667,17 @@ public  Printer printer=new Printer();
                 budget = Integer.min(balance + minWertP2, budget);
                 balance = balance + maxWertP2;
 
-                System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
-                System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
+                //System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
+                //System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
 
                 currentEintraegeP2 = getArrayAbschnitt(currentEintraegeP2, maxIndexP2 + 1, currentEintraegeP2.size() - 1);
                 currentEintraegeP2 = shift(currentEintraegeP2, maxWertP2, " p2 ");//Ausgleichsshift
-                System.out.println("currentEintraegeP2 nach Ausgleichsshift um " + maxWertP2 + "ist" + currentEintraegeP2);
+                //System.out.println("currentEintraegeP2 nach Ausgleichsshift um " + maxWertP2 + "ist" + currentEintraegeP2);
             }
         }
 /////////////////////////////////////////////////////////////////////
         while (!(s1Rest.isEmpty())) {
-            System.out.println("Jetzt noch der Rest non S 1 ");
+            //System.out.println("Jetzt noch der Rest non S 1 ");
 
             int minIndexP1 = getIndexOfMin(currentEintraegeP1);
             Integer minWertP1 = currentEintraegeP1.get(minIndexP1).value;
@@ -693,9 +685,9 @@ public  Printer printer=new Printer();
             budget = Integer.min(balance + minWertP1, budget);
             balance = balance + endWertP1;
 
-            System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
-            System.out.println("Budget                           !!!!!!!!!!!!!!!         "
-                    + "                      :  " + budget);
+            //System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
+            //System.out.println("Budget                           !!!!!!!!!!!!!!!         "
+             //       + "                      :  " + budget);
             if (partitio.getEintraege() == null) {
                 MyArrayList<Eintrag> neuerabschnitt = new MyArrayList<>();
                 neuerabschnitt.addAll(currentEintraegeP1);
@@ -712,15 +704,15 @@ public  Printer printer=new Printer();
         }
 //////////////////////////////////////////////////////////////////////////
         while (!(s2Rest.isEmpty())) {
-            System.out.println("Jetzt noch der Rest non S 2 ");
+            //System.out.println("Jetzt noch der Rest non S 2 ");
             int minIndexP2 = getIndexOfMin(currentEintraegeP2);
             Integer minWertP2 = currentEintraegeP2.get(minIndexP2).value;
             Integer endWertP2 = currentEintraegeP2.get(currentEintraegeP2.size() - 1).value;
             budget = Integer.min(balance + minWertP2, budget);
             balance = balance + endWertP2;
 
-            System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
-            System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
+            //System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
+            //System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
             if (partitio.getEintraege() == null) {
 
                 MyArrayList<Eintrag> neuerabschnitt = new MyArrayList<>();
@@ -735,14 +727,14 @@ public  Printer printer=new Printer();
             s2Rest.removeAll(s2Rest);
         }
 
-        System.out.println("newSortedSells: " + newSortedSells.toString());
+        //System.out.println("newSortedSells: " + newSortedSells.toString());
         partitio.sortedSells = newSortedSells;
 
         partitio.setBalance(balance);
         partitio.setBudget(budget);
 
-        System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
-        System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
+        //System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance);
+        //System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget);
 
     }
 
@@ -755,7 +747,7 @@ public  Printer printer=new Printer();
 //            java.util.Collections.swap(arr, k, laufindexBisMaxKnotenAnzahl);
         }
         if (k == arr.size() - 1) {
-            System.out.println("Permutation : " + arr);
+            //System.out.println("Permutation : " + arr);
             returnList.add(arr);
         }
 
@@ -879,17 +871,13 @@ public  Printer printer=new Printer();
         partition = new Partition(newMyArrayList, newSortedSells);
         partition.setBudget(newBudget);
         partition.setBalance(newBalance);
-//        System.sumQuotuienten.println(p.toString());
-// todo:  Fehler hier?
-        //        partition.getCalculatedGraphOfSortedSells().addEintraege(p2.getCalculatedGraphOfSortedSells().getEintraege());
-//        adjacencyList<Eintrag> shiftList = shift(p1.getCalculatedGraphOfSortedSells().getEintraege(),p2.balance);
-//        partition.getCalculatedGraphOfSortedSells().addEintraege(shiftList);
+
 
         MyArrayList neueEintraege = new MyArrayList<>();
         neueEintraege.addAll(p2.getEintraege());
-        System.out.println("shiftList vor shift um - balance" + -p2.getBalance() + "wegen Join ist" + p1.getEintraege());
+        //System.out.println("shiftList vor shift um - balance" + -p2.getBalance() + "wegen Join ist" + p1.getEintraege());
         MyArrayList<Eintrag> shiftList = shift(p1.getEintraege(), -p2.getBalance(), " p1 ");//Addiershift
-        System.out.println("shiftList nach shift um - balance" + -p2.getBalance() + "wegen Join ist" + shiftList);
+        //System.out.println("shiftList nach shift um - balance" + -p2.getBalance() + "wegen Join ist" + shiftList);
 
         neueEintraege.addAll(shiftList);
         partition.setEintraege(neueEintraege);
@@ -914,7 +902,7 @@ public  Printer printer=new Printer();
     }
 
     MyArrayList<Eintrag> shift(MyArrayList<Eintrag> list, Integer shiftValue, String id) {
-        System.out.println("Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalo");
+        //System.out.println("Haaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalo");
         MyArrayList<Eintrag> newList = (MyArrayList<Eintrag>) list.clone();
 
         for (int i = 0; i < newList.size(); i++) {
@@ -950,39 +938,22 @@ public  Printer printer=new Printer();
             prY.println(0);
 
             for (int laufindexBisMaxKnotenAnzahl = 2;
-                    laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {// todo: kein +10 ??????
+                    laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {
                 double mittelwertSwap = 0;
                 double mittelwertSortedSells = 0;
                 double sumQuotuienten = 0;
                 prX.println(laufindexBisMaxKnotenAnzahl);
 //-----------------------------------------------------------------------------
-//                for (int count = 0; count < pool; count++) {
-//
-//                    instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
-//
-//                    Graph newGraph = new Graph(instance, randomOrdering);
-//                    newGraph = getGraphHeuristik(newGraph, "swap");
-//
-////                prY.println(sumOfBoughts/instance.minBudgetSwap);
-//                    mittelwertSortedSells = mittelwertSortedSells + instance.getBudget();
-//                    mittelwertSwap = mittelwertSwap + instance.minBudgetSwap;
-//                    System.out.println("test" + instance.minBudgetSwap);
-//                }
-//                mittelwertSwap = mittelwertSwap / pool;
-//                mittelwertSortedSells = mittelwertSortedSells / pool;
-//                prY.println(mittelwertSortedSells / mittelwertSwap);// todo: hier können wir Wert für Statistik ändern
-//               
-
-    //-------------------------------------------------------------------------------------            
+         
                 for (int count = 0; count < pool; count++) {
                     instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
                     Graph newGraph = new Graph(instance, randomOrdering);
                     newGraph = getGraphHeuristik(newGraph, heuristik);
-                    System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
-                    System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
+                    //System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
+                    //System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
 
                     double currentOut = (double)instance.getBudget() / instance.getMinBudget(heuristik);
-                    System.out.println("currentOut : //////////////////////////////////////////////////////!!!                      " + currentOut);
+                    //System.out.println("currentOut : //////////////////////////////////////////////////////!!!                      " + currentOut);
                     if (currentOut > 1) {
                         System.err.println("falsch berechnet: sorted sells schlechter als swap");
                     }
@@ -996,22 +967,82 @@ public  Printer printer=new Printer();
             prY.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("No such file exists.");
+            //System.out.println("No such file exists.");
         }
 
 //        tool.function(instance, randomOrdering, "swap")
 //                tool.function(instance, randomOrdering, "changeOrder"
     }
 // todo: Hier gebe ich Integer minBudget zurück
+public void outMinBudgetDevelopment(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
 
+        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenX.txt");
+        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenY.txt");
+
+        try {
+//            file.mkdirs();
+            fileX.createNewFile();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+//            file.mkdirs();
+            fileY.createNewFile();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+        Partition instance;
+        try {
+            PrintWriter prX = new PrintWriter(fileX);
+            PrintWriter prY = new PrintWriter(fileY);
+            prX.println(0);
+            prY.println(0);
+
+            for (int laufindexBisMaxKnotenAnzahl = 2;
+                    laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {
+                double mittelwertSwap = 0;
+                double mittelwertSortedSells = 0;
+                double sumQuotuienten = 0;
+                prX.println(laufindexBisMaxKnotenAnzahl);
+//-----------------------------------------------------------------------------
+         
+                for (int count = 0; count < pool; count++) {
+                    instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
+//                    Graph newGraph = new Graph(instance, randomOrdering);
+//                    newGraph = getGraphHeuristik(newGraph, heuristik);
+//                    //System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
+//                    //System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
+
+                    double currentOut = (double)instance.getBudget();// / instance.getMinBudget(heuristik);
+//                    //System.out.println("currentOut : //////////////////////////////////////////////////////!!!                      " + currentOut);
+//                    if (currentOut > 1) {
+//                        System.err.println("falsch berechnet: sorted sells schlechter als swap");
+//                    }
+                    sumQuotuienten = sumQuotuienten + currentOut;
+                }
+                prY.println(sumQuotuienten / pool);// todo: hier können wir Wert für Statistik ändern
+//                System.sumQuotuienten.println("yEintrag : " + sumOfBoughts/instance.minBudgetSwap);
+
+            }
+            prX.close();
+            prY.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //System.out.println("No such file exists.");
+        }
+
+//        tool.function(instance, randomOrdering, "swap")
+//                tool.function(instance, randomOrdering, "changeOrder"
+    }
  
 
     public Graph getGraphHeuristik(Graph currentGraph, String update) {
-        System.out.println("nochmal der Graph nach Heuristik : Budget " + currentGraph.getMinBudget());
+        //System.out.println("nochmal der Graph nach Heuristik : Budget " + currentGraph.getMinBudget());
 
         MyArrayList<MyInteger> ordering = new MyArrayList<>();
         ordering.addAll(currentGraph.getOrdering());
-        System.out.println("Graph mit SortedSells : Budget " + currentGraph.getPartition().getBudget());
+        //System.out.println("Graph mit SortedSells : Budget " + currentGraph.getPartition().getBudget());
         for (int i = 0; i < ordering.size(); i++) {
             for (int j = i + 1; j < ordering.size(); j++) {
                 MyArrayList<MyInteger> newOrdering = new MyArrayList<>();
@@ -1028,12 +1059,12 @@ public  Printer printer=new Printer();
                 Graph newGraph = new Graph(currentGraph.getPartition(), newOrdering);
 
                 if (newGraph.getMinBudget() > currentGraph.getMinBudget()) {
-                    System.out.println("Graph nach Heuristik : Budget " + newGraph.getMinBudget());
-                    System.out.println("Besser");
+                    //System.out.println("Graph nach Heuristik : Budget " + newGraph.getMinBudget());
+                    //System.out.println("Besser");
 
                     return getGraphHeuristik(newGraph, update);
                 } else {
-                    System.out.println("nicht besser");
+                    //System.out.println("nicht besser");
                 }
 
             }
@@ -1061,30 +1092,30 @@ public  Printer printer=new Printer();
     public Partition buildInstance(int min, int max, int size) {
 
         MyArrayList<Partition> partitions = makeBasicPartitions(min, max, size);
-        buildInstanceOnBasicPartitions(partitions, 33, 33, 34);
+        buildInstanceOnBasicPartitions(partitions,100,0, 0);//TODO: hier kann man die Union Probability erhöhen
 
         Partition instance = partitions.get(0);
-        System.out.println("Instance is build.");
+        //System.out.println("Instance is build.");
         return instance;
     }
-
+ 
     public MyArrayList<MyInteger> changeOrder(int i, int j, MyArrayList<MyInteger> ordering) {
         MyArrayList<MyInteger> newOrdering = new MyArrayList<>();
         newOrdering.addAll(ordering);
-        System.out.println("newOrdering:" + newOrdering);
+        //System.out.println("newOrdering:" + newOrdering);
         List<MyInteger> part = new MyArrayList<>();
         for (int k = i; k < j + 1; k++) {
             part.add(newOrdering.get(k));
         }
-        System.out.println("part:" + part);
+        //System.out.println("part:" + part);
 //MyArrayList.reverse(part);
         Collections.reverse(part);
-        System.out.println("part:" + part);
+        //System.out.println("part:" + part);
 
         for (int k = 0; k < part.size(); k++) {
             newOrdering.set(k + i, part.get(k));
         }
-        System.out.println("newOrdering:" + newOrdering);
+        //System.out.println("newOrdering:" + newOrdering);
 
         return newOrdering;
     }
@@ -1114,30 +1145,25 @@ public  Printer printer=new Printer();
         Graph newGraph;
 
         newGraph = new Graph(instance, instance.sortedSells);
-        System.out.println("Sorted Sells: ");
+        //System.out.println("Sorted Sells: ");
         this.printer.out(newGraph, "sortedSells");
 
         newGraph = new Graph(instance, randomOrdering);
-        System.out.println("currentGraph also ersmal Random : Budget " + newGraph.getMinBudget());
+        //System.out.println("currentGraph also ersmal Random : Budget " + newGraph.getMinBudget());
 
-        System.out.println("Random: ");
+        //System.out.println("Random: ");
         printer.out(newGraph, "random");
 
-        System.out.println("AfterSwap: ");
+        //System.out.println("AfterSwap: ");
         printer.out(getGraphHeuristik(newGraph, "swap"), "afterSwap");
 
-        System.out.println("AfterChangeOrder: ");
+        //System.out.println("AfterChangeOrder: ");
         printer.out(getGraphHeuristik(newGraph, "changeOrder"), "afterChangeOrder");
     }
 
-//    public void superFunctionStatistik(int min, int max, int size) {
-//        // todo: min, max, size muss noch übergeben werden an outStatitikN
-//
-//        outStatistikN("test",min,max,10,2,5);
-//
-//    }
+
     MyArrayList getArrayAbschnitt(MyArrayList list, int i, int j) {
-        System.out.println("list vor Abschnitt " + list);
+        //System.out.println("list vor Abschnitt " + list);
 
         MyArrayList abschnitt = new MyArrayList<>();
         for (int k = i; k < j + 1; k++) {
@@ -1145,7 +1171,7 @@ public  Printer printer=new Printer();
             abschnitt.add(list.get(k));
 
         }
-        System.out.println("list nach Abschnitt von" + i + "bis" + j + "ist" + abschnitt);
+        //System.out.println("list nach Abschnitt von" + i + "bis" + j + "ist" + abschnitt);
 
         return abschnitt;
     }
@@ -1209,12 +1235,12 @@ public  Printer printer=new Printer();
     }
 
     MyArrayList<MyInteger> getAbschnittBisNode(MyArrayList<MyInteger> list, MyInteger node, String id) {
-        System.out.println("list" + id + ":");
+        //System.out.println("list" + id + ":");
         for (int i = 0; i < list.size(); i++) {
 
-            System.out.println(list.get(i));
+            //System.out.println(list.get(i));
         }
-        System.out.println("node:" + node);
+        //System.out.println("node:" + node);
         MyArrayList<MyInteger> newList = new MyArrayList<>();
         int k = 0;
         while (!(list.get(k) == node)) {
@@ -1264,7 +1290,7 @@ public  Printer printer=new Printer();
 
         // Macht das das was es soll? JA
         currentEintraegePx = shift(currentEintraegePx, currentPositiveSet.getBalance(), " p ");
-        System.out.println("currentEintraege " + id + " nach shift um" + currentPositiveSet.getBalance() + "wegen positive set abarbeiten ist" + currentEintraegePx);
+        //System.out.println("currentEintraege " + id + " nach shift um" + currentPositiveSet.getBalance() + "wegen positive set abarbeiten ist" + currentEintraegePx);
         // Macht das das was es soll?
         //ASSERTION
 //        test = new adjacencyList<>();
@@ -1281,17 +1307,17 @@ public  Printer printer=new Printer();
 
         int help = Integer.min(budgetHelp, balanceHelp + currentPositiveSet.getBudget());
         budget.setNumber(help);//balanceBoughtsBudgetOfSetUpToIndex.get(p1.positiveSetsPLengths.get(0)).get(2));
-        System.out.println("budget  " + budget);
+        //System.out.println("budget  " + budget);
 
         balance.setNumber(balanceHelp + currentPositiveSet.getBalance()); //p1.balanceBoughtsBudgetOfSetUpToIndex.get(p1.positiveSetsPLengths.get(0)).get(0);
-        System.out.println("balance in Positive Set abarbeiten:" + balance.toString());
+        //System.out.println("balance in Positive Set abarbeiten:" + balance.toString());
 
         (p.positiveSets).remove(0);
 
-        System.out.println(id + "Rest : " + sRest.toString());
+        //System.out.println(id + "Rest : " + sRest.toString());
 
-        System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance.toString());
-        System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget.toString());
+        //System.out.println("Balance                           !!!!!!!!!!!!!!!                               :  " + balance.toString());
+        //System.out.println("Budget                           !!!!!!!!!!!!!!!                               :  " + budget.toString());
     }
 
     //ASSERTION
@@ -1341,7 +1367,7 @@ public  Printer printer=new Printer();
         instance.adjacencyList.add(nextList6);
 
         instance.sortedSells.addAll(Arrays.asList(myInt40, myInt5nr3, myInt33, myInt7, myInt5nr2));
-        System.out.println("BspPertition: " + instance.toString());
+        //System.out.println("BspPertition: " + instance.toString());
         return instance;
     }
 
@@ -1366,7 +1392,7 @@ public  Printer printer=new Printer();
         instance.sortedSells.addAll(Arrays.asList(myInt40, myInt5nr2));
 //        instance.setBudget(-46);
 //        instance.setBalance(-22);
-        System.out.println("BspPertition A: " + instance.toString());
+        //System.out.println("BspPertition A: " + instance.toString());
         return instance;
     }
 
@@ -1397,7 +1423,7 @@ public  Printer printer=new Printer();
         instance.sortedSells.addAll(Arrays.asList(myInt5nr3, myInt33, myInt7));
 //        instance.setBudget(-49);
 //        instance.setBalance(-42);
-        System.out.println("BspPertition B: " + instance.toString());
+        //System.out.println("BspPertition B: " + instance.toString());
         return instance;
     }
 
@@ -1428,7 +1454,7 @@ public  Printer printer=new Printer();
         instance.sortedSells.addAll(Arrays.asList(myInt5nr3, myInt33, myInt7));
 //        instance.setBudget(-49);
 //        instance.setBalance(-42);
-        System.out.println("BspPertition C: " + instance.toString());
+        //System.out.println("BspPertition C: " + instance.toString());
         return instance;
     }
 
@@ -1447,7 +1473,7 @@ public  Printer printer=new Printer();
         instance.sortedSells.addAll(Arrays.asList(myInt19));
 //        instance.setBudget(-46);
 //        instance.setBalance(-22);
-        System.out.println("BspPertition D: " + instance.toString());
+        //System.out.println("BspPertition D: " + instance.toString());
         return instance;
     }
 
@@ -1478,7 +1504,7 @@ public  Printer printer=new Printer();
         instance.sortedSells.addAll(Arrays.asList(myInt5nr3, myInt33, myInt7));
 //        instance.setBudget(-49);
 //        instance.setBalance(-42);
-        System.out.println("BspPertition B: " + instance.toString());
+        //System.out.println("BspPertition B: " + instance.toString());
         return instance;
     }
 
@@ -1509,7 +1535,7 @@ public  Printer printer=new Printer();
         instance.sortedSells.addAll(Arrays.asList(myInt19, myInt60, myInt16));
 //        instance.setBudget(-49);
 //        instance.setBalance(-42);
-        System.out.println("BspPertition F: " + instance.toString());
+        //System.out.println("BspPertition F: " + instance.toString());
         return instance;
     }
 
@@ -1527,7 +1553,7 @@ public  Printer printer=new Printer();
         instance.sortedSells.addAll(Arrays.asList(myInt49nr2));
 //        instance.setBudget(-49);
 //        instance.setBalance(-42);
-        System.out.println("BspPertition G: " + instance.toString());
+        //System.out.println("BspPertition G: " + instance.toString());
         return instance;
     }
 
