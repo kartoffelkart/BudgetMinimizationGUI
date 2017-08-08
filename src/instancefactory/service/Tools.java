@@ -224,7 +224,7 @@ public  Printer printer=new Printer();
      */
     public String getChoice(int unionProbability, int leftJoinProbability, int rightJoinProbability) {
 
-        MyArrayList<Integer> numbers = getRandomIntMyArrayList(1, 100, 1);
+        MyArrayList<Integer> numbers = getRandomIntMyArrayList(0, 99, 1);
         if (numbers.get(0) < unionProbability) {
             return "union";
         } else {
