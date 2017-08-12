@@ -282,21 +282,25 @@ public class Tools {
      */
     public Partition getRandomPartitionDueToProbality(MyArrayList<Partition> partitions) {
         Partition partition = new Partition();
+
+        //hier berechnen wir die Summe aller Wahrscheinlichkeiten
         int sumProb = 0;
         for (int y = 0; (y < partitions.size()); y++) {
             sumProb = sumProb + partitions.get(y).probability;
         }
+        //-------------------------------------------------------
+
         Integer sum = 0;
+        MyArrayList<Integer> numbers = getRandomIntMyArrayList(1, sumProb, 1);//Wieso geht kein einfacher MyInteger
+        Integer number = numbers.get(0);
 
         for (int y = 0; (y < partitions.size()); y++) {
 
-            MyArrayList<Integer> numbers = getRandomIntMyArrayList(1, sumProb, 1);//Wieso geht kein einfacher MyInteger
-            Integer number = numbers.get(0);
-            //System.out.println(number.toString() + "<");
             sum = sum + partitions.get(y).probability;
-            //System.out.println(sum.toString());
 
             if (number < sum + 1) {
+//            if (number < partitions.get(y).probability + 1) {
+
                 partition = partitions.get(y);
                 break;
             }
