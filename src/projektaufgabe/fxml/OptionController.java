@@ -67,7 +67,7 @@ public class OptionController implements Initializable, PlatformOption {
     public void initialize(URL url, ResourceBundle rb) {
         hostMIN.setText("1");
         dbMAX.setText("100");
-        portMAXKNOTENZAHL.setText("15");
+        portMAXKNOTENZAHL.setText("100");
         passwortPOOL.setText("5");
         usernameSCHRITTLAENGE.setText("2");
         dateiname.setText("changeOrder");

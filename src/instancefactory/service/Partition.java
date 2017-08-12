@@ -5,7 +5,6 @@
  */
 package instancefactory.service;
 
-import static instancefactory.service.Tools.permute;
 import instancefactory.service.MyArrayList;
 import java.util.Iterator;
 import java.util.Arrays;
@@ -25,6 +24,8 @@ public class Partition {
     MyArrayList<MySet> positiveSets;
 
     public MyArrayList<MyInteger> sortedSells;
+    
+     public MyArrayList<MyInteger> randomOrdering;
 
     private Integer minBudgetCompare;
 
@@ -268,27 +269,27 @@ public class Partition {
      * testet ob in dieser Patition die SortedSells wirklich die Reihenfolge
      * sind, die zum MinimalBudget führt
      */
-    public boolean isBestOrdering() {
-        Graph newTestGraph = new Graph(this, sortedSells);
-        Integer probablyBest = newTestGraph.getMinBudget();
-//warum ist die liste leer?
-        MyArrayList<MyArrayList<MyInteger>> returnList = new MyArrayList<>();
-        permute(sortedSells, 0, returnList);
-
-        for (int i = 0; i < returnList.size(); i++) {
-            newTestGraph = new Graph(this, returnList.get(i));
-            if (probablyBest < newTestGraph.getMinBudget()) {
-                //System.out.println("Fehler ! SortedSells ist in der Partition nicht die optimale Reihenfolge");
-                //System.out.println("mit neuer Permutation newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
-                //System.out.println("probablyBest" + probablyBest);
-
-                return false;
-            }
-        }
-        //System.out.println("Gut ! SortedSells ist in der Partition die optimale Reihenfolge");
-        return true;
-
-    }
+//    public boolean isBestOrdering() {
+//        Graph newTestGraph = new Graph(this, sortedSells);
+//        Integer probablyBest = newTestGraph.getMinBudget();
+////warum ist die liste leer?
+//        MyArrayList<MyArrayList<MyInteger>> returnList = new MyArrayList<>();
+//        permute(sortedSells, 0, returnList);
+//
+//        for (int i = 0; i < returnList.size(); i++) {
+//            newTestGraph = new Graph(this, returnList.get(i));
+//            if (probablyBest < newTestGraph.getMinBudget()) {
+//                //System.out.println("Fehler ! SortedSells ist in der Partition nicht die optimale Reihenfolge");
+//                //System.out.println("mit neuer Permutation newTestGraph.getMinBudget()" + newTestGraph.getMinBudget());
+//                //System.out.println("probablyBest" + probablyBest);
+//
+//                return false;
+//            }
+//        }
+//        //System.out.println("Gut ! SortedSells ist in der Partition die optimale Reihenfolge");
+//        return true;
+//
+//    }
 
     @Override
     public String toString() {

@@ -23,7 +23,6 @@ import javax.xml.transform.TransformerException;
 import org.hibernate.SessionFactory;
 import projektaufgabe.fxml.OptionController;
 
-
 /**
  *
  * @author Sonja
@@ -57,7 +56,7 @@ public class Projektaufgabe extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        
+
         Process process = new ProcessBuilder("C:\\Program Files\\MATLAB\\R2013a\\bin\\matlab.exe").start();
 
         stage = primaryStage;
@@ -76,27 +75,25 @@ public class Projektaufgabe extends Application {
 //            }
 //        });
         PlatformSettingsManager man = PlatformSettingsManager.getInstance();
-      
 
-            try {
-                
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/projektaufgabe/fxml/Option.fxml"));
-                Parent root = (Parent) loader.load();
-                OptionController controller = (OptionController) loader.getController();
-                controller.setPlatform(this);
+        try {
 
-                Scene scene = new Scene(root);
-                primaryStage.setScene(scene);
-                primaryStage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/projektaufgabe/fxml/Option.fxml"));
+            Parent root = (Parent) loader.load();
+            OptionController controller = (OptionController) loader.getController();
+            controller.setPlatform(this);
 
-            } catch (IOException ex) {
-                Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
-            }
-   
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Projektaufgabe.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
-    public void startInstanceFactory(Integer schrittlaenge, Integer pool, Integer maxKnotenzahl,Integer min, Integer max, String heuristik) {
+    public void startInstanceFactory(Integer schrittlaenge, Integer pool, Integer maxKnotenzahl, Integer min, Integer max, String heuristik) {
 //        PlatformSettingsManager man = PlatformSettingsManager.getInstance();
 //        man.storeCustomElement("hibernate.connection.url", urli);
 //        man.storeCustomElement("hibernate.connection.username", user);
@@ -120,15 +117,14 @@ public class Projektaufgabe extends Application {
 //        }
         Tools tool = new Tools();
 
-
 //        Partition inst0;
 //        Partition instA;
 //        Partition instB;
 //        Partition instC;
 //        Partition instD;
 //        Partition instE;
-         Partition instF;
-          Partition instG;
+        Partition instF;
+        Partition instG;
 
 //        inst0 = tool.getBspPartition();
 //
@@ -139,7 +135,6 @@ public class Projektaufgabe extends Application {
 //        instE = tool.getBspE();
         instF = tool.getBspF();
         instG = tool.getBspG();
-
 
         //System.out.println("makeSortedSellsUnionAndBudgetAndBalance");
         Partition p = new Partition();
@@ -159,19 +154,13 @@ public class Projektaufgabe extends Application {
 //        //System.out.println("result : "+result);
         //System.out.println("expResult : " + expResult);
         //System.out.println("result : " + result);
-
         //System.out.println("FERTIG               !!!!!!!!!!!!!!!!!");
-
-       
-
-        tool.buildIstanceMakeHeuristicsAndOut(min, max, maxKnotenzahl);
-
-      
         
-
+        
+        
+        tool.buildIstanceMakeHeuristicsAndOut(min, max, maxKnotenzahl);
         tool.outStatistikN(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
-//                tool.outMinBudgetDevelopment(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
-
+//      tool.outMinBudgetDevelopment(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
 
     }
 
