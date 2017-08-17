@@ -50,14 +50,14 @@ public class OptionController implements Initializable, PlatformOption {
     private TextField passwortPOOL;
     @FXML
     private Button settingsUEBERNEHMEN;
-//    @FXML
-//    private Boolean lokalerGewinn;
-//    @FXML
-//    private Integer nurPositiveNegativeSets;
-//    @FXML
-//    private ToggleButton breiteTiefeInstanz;
-//    @FXML
-//    private TextField unionProbability;
+    @FXML
+    private Boolean lokalerGewinn;
+    @FXML
+    private Integer nurPositiveNegativeSets;
+    @FXML
+    private ToggleButton breiteTiefeInstanz;
+    @FXML
+    private TextField unionProbability;
 
     public Integer schrittlaenge;
     public Integer pool;
@@ -67,10 +67,10 @@ public class OptionController implements Initializable, PlatformOption {
     public String heuristik;
     private Projektaufgabe caller;
     private PlatformActionHandler handler = PlatformActionHandler.getInstance();
-//    private Boolean lokalerGewinn;
-//    private Integer nurPositiveNegativeSets;
-//    private Integer breiteTiefeInstanz;
-//    private Integer unionProbability;
+    private Boolean lokalerGewin;
+    private Integer nurPositiveNegativeSet;
+    private Integer breiteTiefeInstan;
+    private Integer unionProbabilit;
 
     /**
      * Initializes the controller class.
