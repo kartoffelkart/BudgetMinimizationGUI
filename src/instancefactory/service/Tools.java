@@ -36,7 +36,7 @@ public class Tools {
 
     public MyArrayList<MyInteger> getPermutation(MyArrayList<MyInteger> randomOrdering) {
 
-        System.out.println("randomOrdering :" + randomOrdering);
+//        System.out.println("randomOrdering :" + randomOrdering);
         MyArrayList<MyInteger> pickOrdering = new MyArrayList<>();
         pickOrdering.addAll(randomOrdering);
         MyArrayList<MyInteger> returnOrdering = new MyArrayList<>();
@@ -46,7 +46,7 @@ public class Tools {
             pickOrdering.remove(te);
 //           
         }
-        System.out.println("returnOrdering :" + returnOrdering);
+//        System.out.println("returnOrdering :" + returnOrdering);
         return returnOrdering;
     }
 
@@ -194,7 +194,7 @@ public class Tools {
         MyArrayList<MyInteger> randomMyIntMyArrayList = new MyArrayList<>();
 
         MyArrayList<Integer> randomIntMyArrayList = getRandomIntMyArrayList(min, max, size);
-//        randomIntMyArrayList.set((size / 4) * 2 + 1, 100);/*((size/4)*2+1,max);*/ //todo: ich mache hier einen lokal großen Gewinn
+        randomIntMyArrayList.set((size / 4) * 2 + 1, 100);/*((size/4)*2+1,max);*/ //todo: ich mache hier einen lokal großen Gewinn
         int toogle = 0;
         for (int it = 0; it < randomIntMyArrayList.size(); it++) {
             if (toogle == 0) {
@@ -363,7 +363,7 @@ public class Tools {
                 }
             }
         }
-
+//        partition.probability = p1.probability + p2.probability;// todo: hier kann ich zwischen breiten und tiefen Instancen wechseln
         return partition;
     }
 

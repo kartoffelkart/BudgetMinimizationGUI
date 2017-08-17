@@ -18,6 +18,7 @@ import javafx.scene.layout.StackPane;
 import projektaufgabe.Projektaufgabe;
 //test import projektaufgabe.service.Service;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 
 import matlabcontrol.MatlabConnectionException;
@@ -49,6 +50,14 @@ public class OptionController implements Initializable, PlatformOption {
     private TextField passwortPOOL;
     @FXML
     private Button settingsUEBERNEHMEN;
+//    @FXML
+//    private Boolean lokalerGewinn;
+//    @FXML
+//    private Integer nurPositiveNegativeSets;
+//    @FXML
+//    private ToggleButton breiteTiefeInstanz;
+//    @FXML
+//    private TextField unionProbability;
 
     public Integer schrittlaenge;
     public Integer pool;
@@ -58,7 +67,10 @@ public class OptionController implements Initializable, PlatformOption {
     public String heuristik;
     private Projektaufgabe caller;
     private PlatformActionHandler handler = PlatformActionHandler.getInstance();
-//    private final Service service = Service.getInstance();
+//    private Boolean lokalerGewinn;
+//    private Integer nurPositiveNegativeSets;
+//    private Integer breiteTiefeInstanz;
+//    private Integer unionProbability;
 
     /**
      * Initializes the controller class.
@@ -89,7 +101,6 @@ public class OptionController implements Initializable, PlatformOption {
         heuristik = dateiname.getText();
 
         caller.startInstanceFactory(schrittlaenge, pool, maxKnotenzahl, min, max, heuristik);
-
 
         MatlabProxyFactoryOptions options = new MatlabProxyFactoryOptions.Builder()
                 .setUsePreviouslyControlledSession(true)
