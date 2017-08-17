@@ -194,17 +194,18 @@ public class Tools {
         MyArrayList<MyInteger> randomMyIntMyArrayList = new MyArrayList<>();
 
         MyArrayList<Integer> randomIntMyArrayList = getRandomIntMyArrayList(min, max, size);
-        randomIntMyArrayList.set((size / 4) * 2 + 1, 100);/*((size/4)*2+1,max);*/ //todo: ich mache hier einen lokal großen Gewinn
-        int toogle = 0;
+        randomIntMyArrayList.set((size / 4) * 2 + 1, 100);/*((size/4)*2+1,max);*/ //todo: LOKALER GEWINN
         for (int it = 0; it < randomIntMyArrayList.size(); it++) {
             if (toogle == 0) {
 
-                MyInteger te = new MyInteger(randomIntMyArrayList.get(it));//todo: so werden die geraden, also die Sells größer
+                MyInteger te = new MyInteger(randomIntMyArrayList.get(it));//todo: NUR POSITIVE SETS
+//                so werden die geraden, also die Sells größer
                 randomMyIntMyArrayList.add(te);
 
                 toogle++;
             } else {
-                MyInteger te = new MyInteger(randomIntMyArrayList.get(it));//todo: so werden die ungeraden, also die Boughts größer
+                MyInteger te = new MyInteger(randomIntMyArrayList.get(it));//todo: NUR NEGATIVE SETS
+//                so werden die ungeraden, also die Boughts größer
                 randomMyIntMyArrayList.add(te);
 
                 toogle--;
@@ -363,7 +364,7 @@ public class Tools {
                 }
             }
         }
-//        partition.probability = p1.probability + p2.probability;// todo: hier kann ich zwischen breiten und tiefen Instancen wechseln
+//        partition.probability = p1.probability + p2.probability;// todo: TIEFE INSTANZ
         return partition;
     }
 
@@ -1119,7 +1120,7 @@ public class Tools {
     public Partition buildInstance(int min, int max, int size) {
 
         MyArrayList<Partition> partitions = makeBasicPartitions(min, max, size);
-        buildInstanceOnBasicPartitions(partitions, 33, 33, 34);//TODO: hier kann man die Union Probability erhöhen
+        buildInstanceOnBasicPartitions(partitions, 33, 33, 34);//TODO: UNION PROBABILITY
 
         Partition instance = partitions.get(0);
         //System.out.println("Instance is build.");
