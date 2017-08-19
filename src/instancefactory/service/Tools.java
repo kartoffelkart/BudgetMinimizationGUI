@@ -195,6 +195,7 @@ public class Tools {
 
         MyArrayList<Integer> randomIntMyArrayList = getRandomIntMyArrayList(min, max, size);
         randomIntMyArrayList.set((size / 4) * 2 + 1, 100);/*((size/4)*2+1,max);*/ //todo: LOKALER GEWINN
+
         for (int it = 0; it < randomIntMyArrayList.size(); it++) {
             if (toogle == 0) {
 
@@ -928,10 +929,10 @@ public class Tools {
         return newList;
     }
 
-    public void outStatistikN(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
+    public void outStatistikWorst(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
 
-        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenX.txt");
-        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenY.txt");
+        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenXWorst.txt");
+        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenYWorst.txt");
 
         try {
 //            file.mkdirs();
@@ -955,15 +956,12 @@ public class Tools {
 
             for (int laufindexBisMaxKnotenAnzahl = schrittlaenge;
                     laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {
-                double mittelwertSwap = 0;
-                double mittelwertSortedSells = 0;
-                double sumQuotuienten = 0;
+
                 prX.println(laufindexBisMaxKnotenAnzahl);
 //-----------------------------------------------------------------------------
-
+                Double outWorst = null;
                 for (int count = 0; count < pool; count++) {
                     instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
-                    Integer bestBudget = null;
 
                     for (int i = 0; i < 10; i++) {//todo: hier kann man die anzahl der Startwerte in der Statistik(Random Orderings) variieren 
 
@@ -971,23 +969,92 @@ public class Tools {
                         Graph newGraph = getGraphHeuristik(newGraphRandom, heuristik);//in instance wird so auch das minBudgetHeuristik initialisiert
                         //System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
                         //System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
-                        Integer newbestBudget = instance.getMinBudget(heuristik);
-                        if (bestBudget == null) {
-                            bestBudget = newbestBudget;
-                        }
-                        if (bestBudget < newbestBudget) {
-                            bestBudget = newbestBudget;
+                        Integer newBudget = instance.getMinBudget(heuristik);
+                        Double newOut = (double) instance.getBudget() / newBudget;
+                        if (outWorst == null) {
+                            outWorst = (double) instance.getBudget() / newBudget;
+
+                        } else {
+                            outWorst = outWorst + newOut;
                         }
 
                     }
-                    double currentOut = (double) instance.getBudget() / bestBudget;
+
                     //System.out.println("currentOut : //////////////////////////////////////////////////////!!!                      " + currentOut);
-                    if (currentOut > 1) {
+                    if (outWorst > 1) {
                         System.err.println("falsch berechnet: sorted sells schlechter als swap");
                     }
-                    sumQuotuienten = sumQuotuienten + currentOut;
+
                 }
-                prY.println(sumQuotuienten / pool);// todo: hier können wir Wert für Statistik ändern
+                prY.println(outWorst);// todo: hier können wir Wert für Statistik ändern
+//                System.sumQuotuienten.println("yEintrag : " + sumOfBoughts/instance.minBudgetSwap);
+
+            }
+            prX.close();
+            prY.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            //System.out.println("No such file exists.");
+        }
+
+//        tool.function(instance, randomOrdering, "swap")
+//                tool.function(instance, randomOrdering, "changeOrder"
+    }
+
+    public void outStatistikAverage(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
+
+        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenXAverage.txt");
+        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenYAverage.txt");
+
+        try {
+//            file.mkdirs();
+            fileX.createNewFile();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+//            file.mkdirs();
+            fileY.createNewFile();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
+        Partition instance;
+        try {
+            PrintWriter prX = new PrintWriter(fileX);
+            PrintWriter prY = new PrintWriter(fileY);
+            prX.println(0);
+            prY.println(0);
+
+            for (int laufindexBisMaxKnotenAnzahl = schrittlaenge;
+                    laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {
+
+                double sumQuotuienten = 0;
+                prX.println(laufindexBisMaxKnotenAnzahl);
+//-----------------------------------------------------------------------------
+                Double sumOutAverage = null;
+
+                for (int count = 0; count < pool; count++) {
+                    instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
+                    Integer worstBudget = null;
+                    for (int i = 0; i < 10; i++) {//todo: hier kann man die anzahl der Startwerte in der Statistik(Random Orderings) variieren 
+
+                        Graph newGraphRandom = new Graph(instance, getPermutation(instance.randomOrdering));
+                        Graph newGraph = getGraphHeuristik(newGraphRandom, heuristik);//in instance wird so auch das minBudgetHeuristik initialisiert
+                        //System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
+                        //System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
+                        Integer newBudget = instance.getMinBudget(heuristik);
+                        Double newOut = (double) instance.getBudget() / newBudget;
+                        if (sumOutAverage == null) {
+                            sumOutAverage = newOut;
+                        } else {
+                            sumOutAverage = sumOutAverage + newOut;
+                        }
+
+                    }
+
+                }
+                prY.println(sumOutAverage / pool);// todo: hier können wir Wert für Statistik ändern
 //                System.sumQuotuienten.println("yEintrag : " + sumOfBoughts/instance.minBudgetSwap);
 
             }

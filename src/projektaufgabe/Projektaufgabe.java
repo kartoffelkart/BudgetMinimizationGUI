@@ -159,7 +159,7 @@ public class Projektaufgabe extends Application {
         
         
         tool.buildIstanceMakeHeuristicsAndOut(min, max, maxKnotenzahl);
-        tool.outStatistikN(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
+        tool.outStatistikAverage(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
 //      tool.outMinBudgetDevelopment(heuristik, min, max, maxKnotenzahl, schrittlaenge, pool);
 
     }
