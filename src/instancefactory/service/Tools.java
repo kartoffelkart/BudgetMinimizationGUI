@@ -929,7 +929,6 @@ public class Tools {
         return newList;
     }
 
-    
     public void outStatistikWorstAverage(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
 
         File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenX.txt");
@@ -971,35 +970,42 @@ public class Tools {
                 prX.println(laufindexBisMaxKnotenAnzahl);
 //-----------------------------------------------------------------------------
                 Double sumOutAverage = null;
-                Double sumOutWorst = null;
+                Double outWorst = null;
                 for (int count = 0; count < pool; count++) {
                     instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
 
 //                    for (int i = 0; i < 1; i++) {//todo: hier kann man die anzahl der Startwerte in der Statistik(Random Orderings) variieren 
                     Graph newGraphRandom = new Graph(instance, getPermutation(instance.randomOrdering));
                     Graph newGraph = getGraphHeuristik(newGraphRandom, heuristik);//in instance wird so auch das minBudgetHeuristik initialisiert
-                    //System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
-                    //System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
+//                    System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
+//                    System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
                     Integer newBudget = instance.getMinBudget(heuristik);
-                    Double newOut = (double) instance.getBudget() / newBudget;
+                    System.out.println("newBudget" + newBudget);
+                    System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
+
+                    Double newOut = (double) instance.getBudget() / (double) newBudget;
+                    System.out.println("newOut" + newOut);
+
                     if (sumOutAverage == null) {
                         sumOutAverage = newOut;
                     } else {
                         sumOutAverage = sumOutAverage + newOut;
                     }
 
-                    if (sumOutWorst == null) {
-                        sumOutWorst = (double) instance.getBudget() / newBudget;
+                    if (outWorst == null) {
+                        outWorst = newOut;
 
                     } else {
-                        sumOutWorst = sumOutWorst + newOut;
+                        if (outWorst > newOut) {
+                            outWorst = newOut;
+                        }
+
                     }
 
 //sumOutAverage = sumOutAverage /1;//todo: hier kann man die anzahl der Startwerte in der Statistik(Random Orderings) variieren 
 //                    }
                 }
 
-                Double outWorst = sumOutWorst / pool;
                 prYWorst.println(outWorst);
 
                 prYAverage.println(sumOutAverage / pool);// todo: hier können wir Wert für Statistik ändern
