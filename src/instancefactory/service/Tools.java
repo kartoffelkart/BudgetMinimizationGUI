@@ -929,11 +929,12 @@ public class Tools {
         return newList;
     }
 
-    public void outStatistikWorst(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
+    
+    public void outStatistikWorstAverage(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
 
-        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenXWorst.txt");
-        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenYWorst.txt");
-
+        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenX.txt");
+        File fileYAverage = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenYAverage.txt");
+        File fileYWorst = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenYWorst.txt");
         try {
 //            file.mkdirs();
             fileX.createNewFile();
@@ -942,7 +943,15 @@ public class Tools {
         }
         try {
 //            file.mkdirs();
-            fileY.createNewFile();
+            fileYAverage.createNewFile();
+
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+//            file.mkdirs();
+            fileYWorst.createNewFile();
+
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -950,88 +959,19 @@ public class Tools {
         Partition instance;
         try {
             PrintWriter prX = new PrintWriter(fileX);
-            PrintWriter prY = new PrintWriter(fileY);
+            PrintWriter prYWorst = new PrintWriter(fileYWorst);
+            PrintWriter prYAverage = new PrintWriter(fileYAverage);
+
             prX.println(0);
-            prY.println(0);
-
-            for (int laufindexBisMaxKnotenAnzahl = schrittlaenge;
-                    laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {
-
-                prX.println(laufindexBisMaxKnotenAnzahl);
-//-----------------------------------------------------------------------------
-                Double outWorst = null;
-                for (int count = 0; count < pool; count++) {
-                    instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
-
-//                    for (int i = 0; i < 10; i++) {//todo: hier kann man die anzahl der Startwerte in der Statistik(Random Orderings) variieren 
-                    Graph newGraphRandom = new Graph(instance, getPermutation(instance.randomOrdering));
-                    Graph newGraph = getGraphHeuristik(newGraphRandom, heuristik);//in instance wird so auch das minBudgetHeuristik initialisiert
-                    //System.out.println("instance.getBudget() : //////////////////////////////////////////////////////!!!                      " + instance.getBudget());
-                    //System.out.println("instance.minBudgetSwap: //////////////////////////////////////////////////////!!!                      " + instance.getMinBudget("swap"));
-                    Integer newBudget = instance.getMinBudget(heuristik);
-                    Double newOut = (double) instance.getBudget() / newBudget;
-                    if (outWorst == null) {
-                        outWorst = (double) instance.getBudget() / newBudget;
-
-                    } else {
-                        outWorst = outWorst + newOut;
-                    }
-
-//                    }
-                    //System.out.println("currentOut : //////////////////////////////////////////////////////!!!                      " + currentOut);
-                    if (outWorst > 1) {
-                        System.err.println("falsch berechnet: sorted sells schlechter als swap");
-                    }
-
-                }
-                outWorst = outWorst /pool;
-                prY.println(outWorst);// todo: hier können wir Wert für Statistik ändern
-//                System.sumQuotuienten.println("yEintrag : " + sumOfBoughts/instance.minBudgetSwap);
-
-            }
-            prX.close();
-            prY.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            //System.out.println("No such file exists.");
-        }
-
-//        tool.function(instance, randomOrdering, "swap")
-//                tool.function(instance, randomOrdering, "changeOrder"
-    }
-
-    public void outStatistikAverage(String heuristik, int min, int max, Integer maxKnotenAnzahl, Integer schrittlaenge, Integer pool) {
-
-        File fileX = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenXAverage.txt");
-        File fileY = new File("C:\\Users\\Soyo\\Desktop\\Bachelorarbeit\\Daten\\StatistikN\\" + heuristik + "DatenYAverage.txt");
-
-        try {
-//            file.mkdirs();
-            fileX.createNewFile();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-        try {
-//            file.mkdirs();
-            fileY.createNewFile();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-
-        Partition instance;
-        try {
-            PrintWriter prX = new PrintWriter(fileX);
-            PrintWriter prY = new PrintWriter(fileY);
-            prX.println(0);
-            prY.println(0);
-
+            prYWorst.println(0);
+            prYAverage.println(0);
             for (int laufindexBisMaxKnotenAnzahl = schrittlaenge;
                     laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {
 
                 prX.println(laufindexBisMaxKnotenAnzahl);
 //-----------------------------------------------------------------------------
                 Double sumOutAverage = null;
-
+                Double sumOutWorst = null;
                 for (int count = 0; count < pool; count++) {
                     instance = buildInstance(min, max, laufindexBisMaxKnotenAnzahl);
 
@@ -1047,16 +987,29 @@ public class Tools {
                     } else {
                         sumOutAverage = sumOutAverage + newOut;
                     }
+
+                    if (sumOutWorst == null) {
+                        sumOutWorst = (double) instance.getBudget() / newBudget;
+
+                    } else {
+                        sumOutWorst = sumOutWorst + newOut;
+                    }
+
 //sumOutAverage = sumOutAverage /1;//todo: hier kann man die anzahl der Startwerte in der Statistik(Random Orderings) variieren 
 //                    }
-
                 }
-                prY.println(sumOutAverage / pool);// todo: hier können wir Wert für Statistik ändern
+
+                Double outWorst = sumOutWorst / pool;
+                prYWorst.println(outWorst);
+
+                prYAverage.println(sumOutAverage / pool);// todo: hier können wir Wert für Statistik ändern
 //                System.sumQuotuienten.println("yEintrag : " + sumOfBoughts/instance.minBudgetSwap);
 
             }
             prX.close();
-            prY.close();
+            prYWorst.close();
+            prYAverage.close();
+
         } catch (Exception e) {
             e.printStackTrace();
             //System.out.println("No such file exists.");
