@@ -953,7 +953,7 @@ public class Tools {
             prX.println(0);
             prY.println(0);
 
-            for (int laufindexBisMaxKnotenAnzahl = 2;
+            for (int laufindexBisMaxKnotenAnzahl = schrittlaenge;
                     laufindexBisMaxKnotenAnzahl < maxKnotenAnzahl; laufindexBisMaxKnotenAnzahl += schrittlaenge) {
                 double mittelwertSwap = 0;
                 double mittelwertSortedSells = 0;
